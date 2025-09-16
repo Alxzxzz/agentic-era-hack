@@ -2,6 +2,7 @@ import os
 from google.cloud.asset_v1 import AssetServiceClient, ContentType
 from typing import Dict, List
 import json
+import google.auth
 
 class GCPRealDataCollector:
     def __init__(self, project_id: str):
@@ -29,7 +30,9 @@ class GCPRealDataCollector:
                 }
             ))
         except Exception as e:
-            print(f"Error listing assets: {e}")
+            creds, _ = google.auth.default()
+            account = creds.service_account_email if hasattr(creds, 'service_account_email') else 'user account'
+            print(f"Error listing assets for project {self.project_id} as {account}: {e}")
             return self._get_mock_data()
 
         print(f"Found {len(assets)} assets in project {self.project_id}")

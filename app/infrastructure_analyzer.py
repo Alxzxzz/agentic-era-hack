@@ -28,42 +28,11 @@ class InfrastructureAnalyzer:
         
         return resources
 
-    def get_google_recommendations(self) -> str:
+    def get_google_recommendations(self) -> Dict:
         """Obtiene recomendaciones oficiales de Google Cloud Recommender"""
         
         recommender = RecommenderService(self.project_id)
         recommendations = recommender.get_cost_recommendations()
         
-        if not recommendations["recommendation_count"]:
-            return "No hay recomendaciones de optimización disponibles actualmente."
-        
-        response = "🎯 **Recomendaciones Oficiales de Google Cloud:**\n\n"
-        
-        # VM Rightsizing
-        if recommendations["recommendations"]["vm_rightsizing"]:
-            response += "**🖥️ Optimización de VMs:**\n"
-            for rec in recommendations["recommendations"]["vm_rightsizing"]:
-                response += f"- {rec['resource']}: {rec['description']}\n"
-                if rec['monthly_savings'] > 0:
-                    response += f"  💰 Ahorro: ${rec['monthly_savings']}/mes\n"
-        
-        # Recursos Idle
-        if recommendations["recommendations"]["idle_resources"]:
-            response += "\n**⏸️ Recursos Sin Uso:**\n"
-            for rec in recommendations["recommendations"]["idle_resources"]:
-                response += f"- {rec['resource']}: {rec['description']}\n"
-                if rec['monthly_savings'] > 0:
-                    response += f"  💰 Ahorro: ${rec['monthly_savings']}/mes\n"
-        
-        # Committed Use
-        if recommendations["recommendations"]["committed_use"]:
-            response += "\n**📋 Descuentos por Compromiso:**\n"
-            for rec in recommendations["recommendations"]["committed_use"]:
-                response += f"- {rec['description']}\n"
-                if rec['monthly_savings'] > 0:
-                    response += f"  💰 Ahorro: ${rec['monthly_savings']}/mes\n"
-        
-        response += f"\n**💰 AHORRO TOTAL POTENCIAL: ${recommendations['total_monthly_savings']}/mes**"
-        
-        return response
+        return recommendations
     # Mantener el resto de funciones igual

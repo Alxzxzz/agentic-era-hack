@@ -1,6 +1,7 @@
 from google.cloud.recommender_v1 import RecommenderClient
 from typing import List, Dict
 import json
+import google.auth
 
 class RecommenderService:
     def __init__(self, project_id: str):
@@ -51,9 +52,11 @@ class RecommenderService:
                         all_recommendations.append(rec_data)
                         
             except Exception as e:
+                creds, _ = google.auth.default()
+                account = creds.service_account_email if hasattr(creds, 'service_account_email') else 'user account'
                 # Algunos recommenders pueden no estar disponibles
                 if "PERMISSION_DENIED" not in str(e) and "NOT_FOUND" not in str(e):
-                    print(f"Error getting {recommender_type}: {e}")
+                    print(f"Error getting {recommender_type} for project {self.project_id} as {account}: {e}")
                 continue
         
         return all_recommendations
