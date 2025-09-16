@@ -96,6 +96,17 @@ def get_weather(query: str) -> str:
         return "It's 60 degrees and foggy."
     return "It's 90 degrees and sunny."
 
+def get_optimization_recommendations(query: str) -> str:
+    """Analiza métricas reales y genera recomendaciones inteligentes"""
+    
+    analyzer = InfrastructureAnalyzer(project_id=project_id)
+    return analyzer.get_smart_recommendations()
+
+def get_google_cloud_recommendations(query: str) -> str:
+    """Obtiene recomendaciones oficiales de optimización de Google Cloud"""
+    
+    analyzer = InfrastructureAnalyzer(project_id=project_id)
+    return analyzer.get_google_recommendations()
 
 def get_current_time(query: str) -> str:
     """Simulates getting the current time for a city.
@@ -127,5 +138,5 @@ root_agent = Agent(
     
     When users ask about infrastructure, costs, or optimization, use the analyze_infrastructure 
     and generate_cost_visualization tools. Be helpful and proactive in suggesting cost savings.""",
-    tools=[analyze_infrastructure, generate_cost_visualization, get_weather, get_current_time],
+    tools=[analyze_infrastructure, get_google_cloud_recommendations, generate_cost_visualization, get_weather, get_current_time],
 )
