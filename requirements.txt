@@ -1,3 +1,20 @@
 google-cloud-asset
 google-cloud-billing
 google-cloud-recommender
+
+# Existing dependencies (keep what you have)
+google-adk
+google-auth
+google-cloud-resource-manager
+google-cloud-compute
+
+# NEW: Cloud Monitoring integration
+google-cloud-monitoring>=2.15.0
+google-cloud-compute>=1.14.0
+
+# For statistical analysis
+statistics  # Usually included in Python standard library
+
+# Optional: For more advanced analysis
+pandas>=1.5.0
+numpy>=1.21.0
