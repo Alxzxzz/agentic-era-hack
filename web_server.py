@@ -96,11 +96,14 @@ async def generate_infrastructure_image(resources: Dict) -> Optional[str]:
         - {len(resources.get('vms', []))} instancias de Compute Engine (VMs)
         - {len(resources.get('databases', []))} bases de datos Cloud SQL
         - {len(resources.get('storage', []))} buckets de Cloud Storage
+        - {len(resources.get('clusters', []))} clusters GKE
+        - {len(resources.get('redis_instances', []))} instancias Memorystore Redis
+        - {len(resources.get('spanner_instances', []))} instancias Spanner
         - Costo total mensual: ${resources.get('total_monthly_cost', 0)}
         
         ESTILO VISUAL:
         - Diagrama de arquitectura profesional estilo Google Cloud
-        - Iconos oficiales de GCP (Compute Engine, Cloud SQL, Cloud Storage)
+        - Iconos oficiales de GCP (Compute Engine, Cloud SQL, Cloud Storage, GKE, Redis, Spanner)
         - Colores corporativos de Google (azul, verde, rojo, amarillo)
         - Layout limpio y organizado
         - Texto en español
@@ -291,7 +294,7 @@ async def get_agent_info():
             "Análisis de costos de infraestructura",
             "Recomendaciones de optimización",
             "Generación de visualizaciones",
-            "Análisis de recursos GCP"
+            "Análisis de recursos GCP (VMs, Storage, SQL, GKE, Redis, Spanner)"
         ],
         "project_id": os.getenv("GOOGLE_CLOUD_PROJECT")
     }

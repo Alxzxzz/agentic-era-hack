@@ -27,6 +27,7 @@ def analyze_infrastructure(query: str) -> str:
     project_id = get_project_id() or default_project_id
     analyzer = InfrastructureAnalyzer(project_id=project_id)
     resources = analyzer.get_infrastructure_summary()
+    print(f"Resources: {resources}")
     
     response = f"""🔍 **Infrastructure Analysis Complete for project {project_id}!**
 
@@ -40,6 +41,12 @@ def analyze_infrastructure(query: str) -> str:
         response += f"- Databases: {len(resources['databases'])} Cloud SQL instances\n"
     if resources['storage']:
         response += f"- Storage: {len(resources['storage'])} buckets\n"
+    if resources['clusters']:
+        response += f"- GKE Clusters: {len(resources['clusters'])} clusters\n"
+    if resources['redis_instances']:
+        response += f"- Memorystore for Redis: {len(resources['redis_instances'])} instances\n"
+    if resources['spanner_instances']:
+        response += f"- Spanner: {len(resources['spanner_instances'])} instances\n"
 
     response += "\n💰 **Cost Breakdown:**\n"
     if resources['vms']:
@@ -55,6 +62,21 @@ def analyze_infrastructure(query: str) -> str:
     if resources['storage']:
         response += "Storage:\n"
         response += chr(10).join([f"  • {bucket['name']}: ${bucket['monthly_cost']}/month ({bucket['size_gb']}GB)" for bucket in resources['storage']])
+        response += "\n"
+
+    if resources['clusters']:
+        response += "GKE Clusters:\n"
+        response += chr(10).join([f"  • {c['name']}: ${c['monthly_cost']}/month" for c in resources['clusters']])
+        response += "\n"
+
+    if resources['redis_instances']:
+        response += "Memorystore for Redis:\n"
+        response += chr(10).join([f"  • {r['name']}: ${r['monthly_cost']}/month" for r in resources['redis_instances']])
+        response += "\n"
+
+    if resources['spanner_instances']:
+        response += "Spanner:\n"
+        response += chr(10).join([f"  • {s['name']}: ${s['monthly_cost']}/month" for s in resources['spanner_instances']])
         response += "\n"
 
     if resources['potential_savings'] > 0:
