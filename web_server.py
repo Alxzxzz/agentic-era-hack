@@ -183,8 +183,10 @@ async def process_agent_message(user_message: str, session_id: str) -> Dict[str,
         if "visualización" in response_text.lower() or "diagrama" in response_text.lower():
             try:
                 from app.infrastructure_analyzer import InfrastructureAnalyzer
+                from app.state_manager import get_project_id
                 
-                analyzer = InfrastructureAnalyzer(os.getenv("GOOGLE_CLOUD_PROJECT"))
+                project_id = get_project_id() or os.getenv("GOOGLE_CLOUD_PROJECT")
+                analyzer = InfrastructureAnalyzer(project_id)
                 resources = analyzer.get_infrastructure_summary()
                 
                 # Generar imagen
