@@ -31,7 +31,6 @@ class RecommenderService:
             "google.compute.image.IdleResourceRecommender",
             "google.iam.policy.Recommender",
             "google.cloudsql.instance.IdleRecommender",
-            "google.storage.bucket.UniformBucketLevelAccessRecommender"
         ]
         
         for recommender_type in recommender_types:

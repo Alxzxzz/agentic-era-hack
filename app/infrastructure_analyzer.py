@@ -10,23 +10,7 @@ class InfrastructureAnalyzer:
     
     def get_infrastructure_summary(self) -> Dict:
         """Obtiene datos REALES de GCP"""
-        
-        # Obtener datos reales
-        real_data = self.data_collector.get_real_infrastructure()
-        
-        # NO añadir datos falsos, usar SOLO lo real
-        resources = {
-            "vms": real_data.get("vms", []),
-            "databases": real_data.get("databases", []),  # Solo si existen realmente
-            "storage": real_data.get("storage", []),      # Solo si existen realmente  
-            "total_monthly_cost": real_data.get("total_monthly_cost", 0),
-            "potential_savings": real_data.get("potential_savings", 0),
-            "is_real_data": True,
-            "project_id": self.project_id,
-            "detected_resources": real_data.get("detected_resources", "")
-        }
-        
-        return resources
+        return self.data_collector.get_real_infrastructure()
 
     def get_google_recommendations(self) -> Dict:
         """Obtiene recomendaciones oficiales de Google Cloud Recommender"""
