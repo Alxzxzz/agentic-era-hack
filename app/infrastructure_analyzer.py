@@ -27,29 +27,7 @@ class InfrastructureAnalyzer:
         }
         
         return resources
-    def get_smart_recommendations(self) -> str:
-        """Genera recomendaciones basadas en monitoring real"""
-    
-        resources = self.get_infrastructure_summary()
-        monitor = MonitoringAnalyzer(self.project_id)
-        recommendations = monitor.generate_recommendations(resources)
-        
-        if not recommendations:
-            return "No se encontraron optimizaciones significativas."
-        
-        response = "**Recomendaciones basadas en uso real (últimas 24h):**\n\n"
-        
-        total_savings = 0
-        for i, rec in enumerate(recommendations, 1):
-            response += f"{i}. **{rec['type'].replace('-', ' ').title()}** para `{rec['resource']}`\n"
-            response += f"   - Razón: {rec['reason']}\n"
-            response += f"   - Ahorro estimado: ${rec['monthly_savings']:.2f}/mes\n"
-            response += f"   - Confianza: {rec['confidence']}\n\n"
-            total_savings += rec['monthly_savings']
-        
-        response += f"**💰 Ahorro total potencial: ${total_savings:.2f}/mes**"
-        
-        return response
+
     def get_google_recommendations(self) -> str:
         """Obtiene recomendaciones oficiales de Google Cloud Recommender"""
         

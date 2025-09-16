@@ -1,15 +1,22 @@
-from google.cloud import recommender_v1
+from google.cloud.recommender_v1 import RecommenderClient
 from typing import List, Dict
 import json
 
 class RecommenderService:
     def __init__(self, project_id: str):
         self.project_id = project_id
-        self.client = recommender_v1.RecommenderClient()
+        try:
+            self.client = RecommenderClient()
+        except Exception as e:
+            print(f"Error initializing RecommenderClient: {e}")
+            self.client = None
         
     def get_all_recommendations(self) -> List[Dict]:
         """Obtiene TODAS las recomendaciones de Google Cloud Recommender"""
         
+        if not self.client:
+            return []
+
         all_recommendations = []
         parent = f"projects/{self.project_id}/locations/global"
         
@@ -35,7 +42,10 @@ class RecommenderService:
                     request={"parent": recommender_parent}
                 )
                 
-                for recommendation in recommendations:
+                recommendations_list = list(recommendations)
+                print(f"Found {len(recommendations_list)} recommendations for {recommender_type}")
+
+                for recommendation in recommendations_list:
                     rec_data = self._parse_recommendation(recommendation)
                     if rec_data:
                         all_recommendations.append(rec_data)
