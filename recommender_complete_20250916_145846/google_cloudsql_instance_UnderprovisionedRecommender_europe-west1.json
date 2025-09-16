@@ -1,0 +1,66 @@
+[
+  {
+    "additionalImpact": [
+      {
+        "category": "COST",
+        "costProjection": {
+          "cost": {
+            "currencyCode": "USD",
+            "nanos": 98496094,
+            "units": "16"
+          },
+          "costInLocalCurrency": {
+            "currencyCode": "EUR",
+            "nanos": 876903634,
+            "units": "13"
+          },
+          "duration": "2592000s"
+        }
+      }
+    ],
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/europe-west1/insightTypes/google.cloudsql.instance.UnderprovisionedMemoryUsageInsight/insights/365d37f3-91ec-4a76-aeed-0e0f04b1fc26"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "custom",
+              "path": "/",
+              "resource": "//sqladmin.googleapis.com/v1/projects/gauss--core--dev--af/instances/gauss-brand-max--backend--cloudsql--uss4",
+              "resourceType": "sqladmin.googleapis.com/Instance",
+              "value": "https://console.cloud.google.com/sql/instances/gauss-brand-max--backend--cloudsql--uss4/overview?project=gauss--core--dev--af"
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "currentMachineType": "db-f1-micro",
+        "currentMemoryGib": 0.599609375,
+        "currentVcpuCores": 1,
+        "instanceName": "gauss-brand-max--backend--cloudsql--uss4",
+        "recommendedMachineType": "db-custom-1-3840",
+        "recommendedMemoryGib": 3.75,
+        "recommendedVcpuCores": 1
+      }
+    },
+    "description": "Instance: gauss-brand-max--backend--cloudsql--uss4 has had high CPU and/or memory utilization during the past 8 days. The instance may perform better if you switch to a CUSTOM machine type with the following resources: 1 (+0) vCPUs and 3.75 (+3.15) GB memory. Review the utilization reports to ensure that the instance should and can be resized safely.",
+    "etag": "\"2fcfd033346f6913\"",
+    "lastRefreshTime": "2025-09-15T07:00:00Z",
+    "name": "projects/85988732320/locations/europe-west1/recommenders/google.cloudsql.instance.UnderprovisionedRecommender/recommendations/59842df9-99a5-4656-80d9-42f159edde85",
+    "primaryImpact": {
+      "category": "PERFORMANCE"
+    },
+    "priority": "P2",
+    "recommenderSubtype": "CHANGE_INSTANCE_SIZE",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//sqladmin.googleapis.com/projects/gauss--core--dev--af/instances/gauss-brand-max--backend--cloudsql--uss4"
+    ]
+  }
+]

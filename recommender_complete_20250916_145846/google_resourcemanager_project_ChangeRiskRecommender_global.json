@@ -1,0 +1,45 @@
+[
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/global/insightTypes/google.resourcemanager.project.ChangeRiskInsight/insights/ec647228-0fcc-4a08-9b8d-ac8ad4720d21"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "custom",
+              "path": "/",
+              "resource": "//cloudresourcemanager.googleapis.com/projects/85988732320",
+              "resourceType": "cloudresourcemanager.googleapis.com/Project",
+              "value": "https://cloud.google.com/recommender/docs/change-risk-recommendations"
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "asset": {
+          "assetType": "cloudresourcemanager.googleapis.com/Project",
+          "name": "gauss--core--dev--af"
+        }
+      }
+    },
+    "description": "This project must remain active.",
+    "etag": "\"51c0da6016ccb906\"",
+    "lastRefreshTime": "2025-06-18T06:59:00Z",
+    "name": "projects/85988732320/locations/global/recommenders/google.resourcemanager.project.ChangeRiskRecommender/recommendations/65fea92e-f339-4b3d-a5ce-33771cfa1c45",
+    "primaryImpact": {
+      "category": "RELIABILITY"
+    },
+    "priority": "P4",
+    "recommenderSubtype": "REVIEW_RISK",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//cloudresourcemanager.googleapis.com/projects/85988732320"
+    ]
+  }
+]

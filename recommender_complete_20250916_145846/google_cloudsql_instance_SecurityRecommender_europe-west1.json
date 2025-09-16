@@ -1,0 +1,190 @@
+[
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/europe-west1/insightTypes/google.cloudsql.instance.SecurityInsight/insights/69790428-2dbb-4a20-b269-8cf4c8646c72"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "custom",
+              "path": "/",
+              "resource": "//sqladmin.googleapis.com/projects/gauss--core--dev--af/instances/gauss-brand-max--backend--cloudsql--uss4",
+              "resourceType": "sqladmin.googleapis.com/Instance",
+              "value": "https://console.cloud.google.com/sql/instances/gauss-brand-max--backend--cloudsql--uss4/users?project=gauss--core--dev--af"
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "instanceName": "gauss-brand-max--backend--cloudsql--uss4",
+        "playbooks": [
+          {
+            "link": "https://cloud.google.com/sql/docs/postgres/create-manage-users#user-pwd-policy",
+            "title": "Enable user password policies"
+          }
+        ]
+      }
+    },
+    "description": "Enable user password policies such as password expiration policy and account locking policy based on consecutive login failures.",
+    "etag": "\"1a46a958b1558fdd\"",
+    "lastRefreshTime": "2025-09-15T08:06:16.544116Z",
+    "name": "projects/85988732320/locations/europe-west1/recommenders/google.cloudsql.instance.SecurityRecommender/recommendations/1150fe35-d9db-4364-aa81-bf5d63d796d6",
+    "primaryImpact": {
+      "category": "SECURITY"
+    },
+    "priority": "P3",
+    "recommenderSubtype": "ENABLE_USER_PASSWORD_POLICY",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//sqladmin.googleapis.com/projects/gauss--core--dev--af/instances/gauss-brand-max--backend--cloudsql--uss4"
+    ]
+  },
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/europe-west1/insightTypes/google.cloudsql.instance.SecurityInsight/insights/59e3a6ee-0afe-43fe-8efd-05b5cbae5d3f"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "custom",
+              "path": "/",
+              "resource": "//sqladmin.googleapis.com/projects/gauss--core--dev--af/instances/gauss-brand-max--backend--cloudsql--uss4",
+              "resourceType": "sqladmin.googleapis.com/Instance",
+              "value": "https://console.cloud.google.com/sql/instances/gauss-brand-max--backend--cloudsql--uss4/edit?project=gauss--core--dev--af"
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "instanceName": "gauss-brand-max--backend--cloudsql--uss4",
+        "playbooks": [
+          {
+            "link": "https://cloud.google.com/sql/docs/postgres/built-in-authentication#instance_password_policies",
+            "title": "Enable instance password policies"
+          }
+        ]
+      }
+    },
+    "description": "Enable instance password policies to enforce creation of strong passwords for built-in authentication users.",
+    "etag": "\"869e66968bc23e93\"",
+    "lastRefreshTime": "2025-09-15T08:01:15Z",
+    "name": "projects/85988732320/locations/europe-west1/recommenders/google.cloudsql.instance.SecurityRecommender/recommendations/8bcb9145-31f4-4239-bb7e-f947e339618b",
+    "primaryImpact": {
+      "category": "SECURITY"
+    },
+    "priority": "P3",
+    "recommenderSubtype": "ENABLE_INSTANCE_PASSWORD_POLICY",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//sqladmin.googleapis.com/projects/gauss--core--dev--af/instances/gauss-brand-max--backend--cloudsql--uss4"
+    ]
+  },
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/europe-west1/insightTypes/google.cloudsql.instance.SecurityInsight/insights/78be1ec3-9363-478b-98f3-b52a0777a3d5"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "custom",
+              "path": "/",
+              "resource": "//sqladmin.googleapis.com/projects/gauss--core--dev--af/instances/gauss-brand-max--backend--cloudsql--uss4",
+              "resourceType": "sqladmin.googleapis.com/Instance",
+              "value": "https://console.cloud.google.com/sql/instances/gauss-brand-max--backend--cloudsql--uss4/connections/security?project=gauss--core--dev--af"
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "instanceName": "gauss-brand-max--backend--cloudsql--uss4",
+        "playbooks": [
+          {
+            "link": "https://cloud.google.com/sql/docs/postgres/configure-ssl-instance#enforcing-ssl",
+            "title": "Configure SSL manually"
+          },
+          {
+            "link": "https://cloud.google.com/sql/docs/postgres/sql-proxy#enforce-use-proxy",
+            "title": "Enforce the use of connectors"
+          }
+        ]
+      }
+    },
+    "description": "Configure the instance to mandate SSL encryption for direct connections. Alternatively, enforce the use of Cloud SQL connectors that always use SSL encryption.",
+    "etag": "\"2f063e3efae5f614\"",
+    "lastRefreshTime": "2025-09-15T08:01:15Z",
+    "name": "projects/85988732320/locations/europe-west1/recommenders/google.cloudsql.instance.SecurityRecommender/recommendations/a86567a0-55b2-4be5-bce4-32c950f5b63b",
+    "primaryImpact": {
+      "category": "SECURITY"
+    },
+    "priority": "P2",
+    "recommenderSubtype": "REQUIRE_SSL",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//sqladmin.googleapis.com/projects/gauss--core--dev--af/instances/gauss-brand-max--backend--cloudsql--uss4"
+    ]
+  },
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/europe-west1/insightTypes/google.cloudsql.instance.SecurityInsight/insights/aacedb8d-821e-4437-a6bb-0bc39da9d4da"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "custom",
+              "path": "/",
+              "resource": "//sqladmin.googleapis.com/projects/gauss--core--dev--af/instances/gauss-brand-max--backend--cloudsql--uss4",
+              "resourceType": "sqladmin.googleapis.com/Instance",
+              "value": "https://console.cloud.google.com/sql/instances/gauss-brand-max--backend--cloudsql--uss4/edit?project=gauss--core--dev--af"
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "instanceName": "gauss-brand-max--backend--cloudsql--uss4",
+        "playbooks": [
+          {
+            "link": "https://cloud.google.com/sql/docs/postgres/pg-audit",
+            "title": "Enable database auditing"
+          }
+        ]
+      }
+    },
+    "description": "Enable database auditing to monitor specific user actions in the database to help with security and compliance requirements that may apply to you.",
+    "etag": "\"6f8b9062bce8e506\"",
+    "lastRefreshTime": "2025-09-15T08:01:15Z",
+    "name": "projects/85988732320/locations/europe-west1/recommenders/google.cloudsql.instance.SecurityRecommender/recommendations/dd3d952e-da9f-4e31-82a1-9f618056cd15",
+    "primaryImpact": {
+      "category": "SECURITY"
+    },
+    "priority": "P4",
+    "recommenderSubtype": "ENABLE_DATABASE_AUDITING",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//sqladmin.googleapis.com/projects/gauss--core--dev--af/instances/gauss-brand-max--backend--cloudsql--uss4"
+    ]
+  }
+]

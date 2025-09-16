@@ -1,0 +1,44 @@
+[
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/europe-west1/insightTypes/google.run.service.IdentityInsight/insights/a5702365-537b-4e6e-bfa5-8272a7d2f476"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "custom",
+              "path": "/",
+              "resource": "//run.googleapis.com/projects/85988732320/regions/europe-west1/services/token-counter",
+              "resourceType": "run.googleapis.com/Service",
+              "value": "https://console.cloud.google.com/run/deploy/europe-west1/token-counter;createServiceAccount=true?project=85988732320"
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "serviceName": "token-counter",
+        "serviceRegion": "europe-west1"
+      }
+    },
+    "description": "Create dedicated service account for this service to increase security",
+    "etag": "\"f836fc3a5eb1303b\"",
+    "lastRefreshTime": "2025-09-15T07:13:50.820540Z",
+    "name": "projects/85988732320/locations/europe-west1/recommenders/google.run.service.IdentityRecommender/recommendations/3d7d0ad9-6d7c-4984-a888-b851f082224b",
+    "primaryImpact": {
+      "category": "SECURITY"
+    },
+    "priority": "P2",
+    "recommenderSubtype": "CREATE_DEDICATED_SERVICE_IDENTITY",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//cloudresourcemanager.googleapis.com/projects/85988732320",
+      "//run.googleapis.com/projects/gauss--core--dev--af/locations/europe-west1/services/token-counter"
+    ]
+  }
+]

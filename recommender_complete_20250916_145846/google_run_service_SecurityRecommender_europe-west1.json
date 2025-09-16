@@ -1,0 +1,330 @@
+[
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/europe-west1/insightTypes/google.run.service.SecurityInsight/insights/0268331e-62c4-4468-93ee-3fe0636defdc"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "custom",
+              "path": "/",
+              "resource": "//run.googleapis.com/projects/85988732320/regions/europe-west1/services/gauss--core--mtcm--pipeline",
+              "resourceType": "run.googleapis.com/Service",
+              "value": "https://cloud.google.com/run/docs/configuring/secrets"
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "serviceName": "gauss--core--mtcm--pipeline"
+      }
+    },
+    "description": "Move API key to Secret Manager",
+    "etag": "\"1ff3242b29e31044\"",
+    "lastRefreshTime": "2025-09-15T11:49:51.571039Z",
+    "name": "projects/85988732320/locations/europe-west1/recommenders/google.run.service.SecurityRecommender/recommendations/1a76be79-9385-4c9c-a5f4-b4988b1365a8",
+    "primaryImpact": {
+      "category": "SECURITY"
+    },
+    "priority": "P3",
+    "recommenderSubtype": "API_KEY_IN_ENV_VAR",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//cloudresourcemanager.googleapis.com/projects/85988732320",
+      "//run.googleapis.com/projects/gauss--core--dev--af/locations/europe-west1/services/gauss--core--mtcm--pipeline"
+    ]
+  },
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/europe-west1/insightTypes/google.run.service.SecurityInsight/insights/c13190b0-07c1-4ac6-9d29-674a3e971423"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "custom",
+              "path": "/",
+              "resource": "//run.googleapis.com/projects/85988732320/regions/europe-west1/services/gauss--core--tkoc--pipeline",
+              "resourceType": "run.googleapis.com/Service",
+              "value": "https://cloud.google.com/run/docs/configuring/secrets"
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "serviceName": "gauss--core--tkoc--pipeline"
+      }
+    },
+    "description": "Move API key to Secret Manager",
+    "etag": "\"2e471d59748d4a27\"",
+    "lastRefreshTime": "2025-09-15T11:49:51.571039Z",
+    "name": "projects/85988732320/locations/europe-west1/recommenders/google.run.service.SecurityRecommender/recommendations/5a0629b7-06a7-44c2-870a-e67b8d3b1c9c",
+    "primaryImpact": {
+      "category": "SECURITY"
+    },
+    "priority": "P3",
+    "recommenderSubtype": "API_KEY_IN_ENV_VAR",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//cloudresourcemanager.googleapis.com/projects/85988732320",
+      "//run.googleapis.com/projects/gauss--core--dev--af/locations/europe-west1/services/gauss--core--tkoc--pipeline"
+    ]
+  },
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/europe-west1/insightTypes/google.run.service.SecurityInsight/insights/0e184843-e7b3-4da1-a82f-5f852270f537"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "custom",
+              "path": "/",
+              "resource": "//run.googleapis.com/projects/85988732320/regions/europe-west1/services/gauss--core--gacm--pipeline",
+              "resourceType": "run.googleapis.com/Service",
+              "value": "https://cloud.google.com/run/docs/configuring/secrets"
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "serviceName": "gauss--core--gacm--pipeline"
+      }
+    },
+    "description": "Move API key to Secret Manager",
+    "etag": "\"130e4555e47f0bc2\"",
+    "lastRefreshTime": "2025-09-15T11:49:51.571039Z",
+    "name": "projects/85988732320/locations/europe-west1/recommenders/google.run.service.SecurityRecommender/recommendations/5e585235-c01b-4a39-b5e0-e8f3078a6d46",
+    "primaryImpact": {
+      "category": "SECURITY"
+    },
+    "priority": "P3",
+    "recommenderSubtype": "API_KEY_IN_ENV_VAR",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//cloudresourcemanager.googleapis.com/projects/85988732320",
+      "//run.googleapis.com/projects/gauss--core--dev--af/locations/europe-west1/services/gauss--core--gacm--pipeline"
+    ]
+  },
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/europe-west1/insightTypes/google.run.service.SecurityInsight/insights/e96aa884-6dd8-4dc3-8eee-333462441d2e"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "custom",
+              "path": "/",
+              "resource": "//run.googleapis.com/projects/85988732320/regions/europe-west1/services/gauss--core--ocg4--pipeline",
+              "resourceType": "run.googleapis.com/Service",
+              "value": "https://cloud.google.com/run/docs/configuring/secrets"
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "serviceName": "gauss--core--ocg4--pipeline"
+      }
+    },
+    "description": "Move API key to Secret Manager",
+    "etag": "\"5ec0294821a5804b\"",
+    "lastRefreshTime": "2025-09-15T11:49:51.571039Z",
+    "name": "projects/85988732320/locations/europe-west1/recommenders/google.run.service.SecurityRecommender/recommendations/819feae2-bb8f-44cd-ab52-0e089b913cb2",
+    "primaryImpact": {
+      "category": "SECURITY"
+    },
+    "priority": "P3",
+    "recommenderSubtype": "API_KEY_IN_ENV_VAR",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//cloudresourcemanager.googleapis.com/projects/85988732320",
+      "//run.googleapis.com/projects/gauss--core--dev--af/locations/europe-west1/services/gauss--core--ocg4--pipeline"
+    ]
+  },
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/europe-west1/insightTypes/google.run.service.SecurityInsight/insights/d2d57dc1-252a-4a18-aec8-c80788be0b81"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "custom",
+              "path": "/",
+              "resource": "//run.googleapis.com/projects/85988732320/regions/europe-west1/services/gauss--core--cmoc--pipeline",
+              "resourceType": "run.googleapis.com/Service",
+              "value": "https://cloud.google.com/run/docs/configuring/secrets"
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "serviceName": "gauss--core--cmoc--pipeline"
+      }
+    },
+    "description": "Move API key to Secret Manager",
+    "etag": "\"2884382428e38695\"",
+    "lastRefreshTime": "2025-09-15T11:49:51.571039Z",
+    "name": "projects/85988732320/locations/europe-west1/recommenders/google.run.service.SecurityRecommender/recommendations/894701ee-26e8-4da8-af92-1b029ccfdd48",
+    "primaryImpact": {
+      "category": "SECURITY"
+    },
+    "priority": "P3",
+    "recommenderSubtype": "API_KEY_IN_ENV_VAR",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//cloudresourcemanager.googleapis.com/projects/85988732320",
+      "//run.googleapis.com/projects/gauss--core--dev--af/locations/europe-west1/services/gauss--core--cmoc--pipeline"
+    ]
+  },
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/europe-west1/insightTypes/google.run.service.SecurityInsight/insights/94ec2205-bef3-436c-90f2-ecd1bdbecf5e"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "custom",
+              "path": "/",
+              "resource": "//run.googleapis.com/projects/85988732320/regions/europe-west1/services/gauss--core--dvcm--pipeline",
+              "resourceType": "run.googleapis.com/Service",
+              "value": "https://cloud.google.com/run/docs/configuring/secrets"
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "serviceName": "gauss--core--dvcm--pipeline"
+      }
+    },
+    "description": "Move API key to Secret Manager",
+    "etag": "\"5b0e3f3dfc6af7ed\"",
+    "lastRefreshTime": "2025-09-15T11:49:51.571039Z",
+    "name": "projects/85988732320/locations/europe-west1/recommenders/google.run.service.SecurityRecommender/recommendations/9076383c-b9e3-47af-a15d-b800bde816d2",
+    "primaryImpact": {
+      "category": "SECURITY"
+    },
+    "priority": "P3",
+    "recommenderSubtype": "API_KEY_IN_ENV_VAR",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//cloudresourcemanager.googleapis.com/projects/85988732320",
+      "//run.googleapis.com/projects/gauss--core--dev--af/locations/europe-west1/services/gauss--core--dvcm--pipeline"
+    ]
+  },
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/europe-west1/insightTypes/google.run.service.SecurityInsight/insights/c32e5d10-339a-47bf-a19e-fbbc154ecd68"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "custom",
+              "path": "/",
+              "resource": "//run.googleapis.com/projects/85988732320/regions/europe-west1/services/gauss--core--faoc--pipeline",
+              "resourceType": "run.googleapis.com/Service",
+              "value": "https://cloud.google.com/run/docs/configuring/secrets"
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "serviceName": "gauss--core--faoc--pipeline"
+      }
+    },
+    "description": "Move API key to Secret Manager",
+    "etag": "\"0ea328096d2a0a4a\"",
+    "lastRefreshTime": "2025-09-15T11:49:51.571039Z",
+    "name": "projects/85988732320/locations/europe-west1/recommenders/google.run.service.SecurityRecommender/recommendations/933ab9f6-3693-44d1-91b5-4752ce5a9b19",
+    "primaryImpact": {
+      "category": "SECURITY"
+    },
+    "priority": "P3",
+    "recommenderSubtype": "API_KEY_IN_ENV_VAR",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//cloudresourcemanager.googleapis.com/projects/85988732320",
+      "//run.googleapis.com/projects/gauss--core--dev--af/locations/europe-west1/services/gauss--core--faoc--pipeline"
+    ]
+  },
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/europe-west1/insightTypes/google.run.service.SecurityInsight/insights/a407b5d2-aeba-4a2e-b5ca-9266a5506877"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "custom",
+              "path": "/",
+              "resource": "//run.googleapis.com/projects/85988732320/regions/europe-west1/services/gauss--core--gaoc--pipeline",
+              "resourceType": "run.googleapis.com/Service",
+              "value": "https://cloud.google.com/run/docs/configuring/secrets"
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "serviceName": "gauss--core--gaoc--pipeline"
+      }
+    },
+    "description": "Move API key to Secret Manager",
+    "etag": "\"ba38e03c00c4bc82\"",
+    "lastRefreshTime": "2025-09-15T11:49:51.571039Z",
+    "name": "projects/85988732320/locations/europe-west1/recommenders/google.run.service.SecurityRecommender/recommendations/afe2d948-98e0-4d45-973d-1a3646bf35f9",
+    "primaryImpact": {
+      "category": "SECURITY"
+    },
+    "priority": "P3",
+    "recommenderSubtype": "API_KEY_IN_ENV_VAR",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//cloudresourcemanager.googleapis.com/projects/85988732320",
+      "//run.googleapis.com/projects/gauss--core--dev--af/locations/europe-west1/services/gauss--core--gaoc--pipeline"
+    ]
+  }
+]
