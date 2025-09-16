@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agente de Optimización GCP</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .chat-container {
+            width: 90%;
+            max-width: 900px;
+            height: 85vh;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .chat-header {
+            background: linear-gradient(135deg, #4285f4 0%, #34a853 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+        }
+
+        .chat-header h1 {
+            font-size: 1.8em;
+            margin-bottom: 5px;
+        }
+
+        .chat-header p {
+            opacity: 0.9;
+            font-size: 0.9em;
+        }
+
+        .status-indicator {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #4caf50;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% { opacity: 1; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background: #f8f9fa;
+        }
+
+        .message {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .message.agent {
+            justify-content: flex-start;
+        }
+
+        .message-content {
+            max-width: 75%;
+            padding: 15px 20px;
+            border-radius: 20px;
+            word-wrap: break-word;
+            line-height: 1.5;
+            font-size: 0.95em;
+        }
+
+        .message.user .message-content {
+            background: #4285f4;
+            color: white;
+            border-bottom-right-radius: 5px;
+        }
+
+        .message.agent .message-content {
+            background: white;
+            color: #333;
+            border: 1px solid #e0e0e0;
+            border-bottom-left-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .message.typing .message-content {
+            background: #e0e0e0;
+            color: #666;
+            font-style: italic;
+        }
+
+        .message-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            margin: 0 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        .message.user .message-avatar {
+            background: #4285f4;
+            color: white;
+            order: 1;
+        }
+
+        .message.agent .message-avatar {
+            background: #34a853;
+            color: white;
+        }
+
+        .message.typing .message-avatar {
+            background: #ff9800;
+            color: white;
+        }
+
+        .chat-input-container {
+            padding: 20px;
+            background: white;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        .chat-input-wrapper {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 30px;
+            font-size: 1em;
+            outline: none;
+            transition: border-color 0.3s;
+        }
+
+        .chat-input:focus {
+            border-color: #4285f4;
+        }
+
+        .send-button {
+            background: #4285f4;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+            font-size: 1.2em;
+        }
+
+        .send-button:hover {
+            background: #3367d6;
+        }
+
+        .send-button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .suggestion-chip {
+            background: #e8f0fe;
+            color: #1a73e8;
+            padding: 10px 15px;
+            border-radius: 25px;
+            font-size: 0.9em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            border: none;
+        }
+
+        .suggestion-chip:hover {
+            background: #d2e3fc;
+        }
+
+        .image-container {
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .generated-image {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+            margin: 10px 0;
+        }
+
+        .loading-dots {
+            display: inline-block;
+        }
+
+        .loading-dots::after {
+            content: '';
+            animation: dots 1.5s infinite;
+        }
+
+        @keyframes dots {
+            0%, 20% { content: ''; }
+            40% { content: '.'; }
+            60% { content: '..'; }
+            80%, 100% { content: '...'; }
+        }
+
+        .error-message {
+            background: #ffebee;
+            color: #c62828;
+            border: 1px solid #ffcdd2;
+        }
+
+        .timestamp {
+            font-size: 0.7em;
+            opacity: 0.6;
+            margin-top: 5px;
+        }
+
+        .welcome-message {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+            font-style: italic;
+        }
+
+        @media (max-width: 600px) {
+            .chat-container {
+                width: 95%;
+                height: 90vh;
+            }
+            
+            .message-content {
+                max-width: 85%;
+            }
+            
+            .suggestions {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="status-indicator" id="statusIndicator"></div>
+            <h1>🤖 Agente de Optimización GCP</h1>
+            <p>Analiza tu infraestructura y obtén recomendaciones de optimización</p>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+            <div class="message agent">
+                <div class="message-avatar">🤖</div>
+                <div class="message-content">
+                    ¡Hola! Soy tu agente especializado en optimización de infraestructura Google Cloud Platform. 
+                    <br><br>
+                    Puedo ayudarte a:
+                    <br>• 📊 Analizar costos de tu infraestructura actual
+                    <br>• 💡 Generar recomendaciones de optimización
+                    <br>• 🎨 Crear visualizaciones de tu arquitectura
+                    <br>• 🔍 Identificar oportunidades de ahorro
+                    <br>• 📈 Proporcionar análisis detallados de recursos
+                    <br><br>
+                    ¿En qué puedo ayudarte hoy?
+                </div>
+            </div>
+        </div>
+
+        <div class="chat-input-container">
+            <div class="suggestions">
+                <button class="suggestion-chip" onclick="sendSuggestion('Analiza mi infraestructura actual')">
+                    📊 Analizar infraestructura
+                </button>
+                <button class="suggestion-chip" onclick="sendSuggestion('Genera recomendaciones de optimización')">
+                    💡 Recomendaciones
+                </button>
+                <button class="suggestion-chip" onclick="sendSuggestion('Crea una visualización de costos')">
+                    🎨 Visualización
+                </button>
+                <button class="suggestion-chip" onclick="sendSuggestion('¿Cuáles son mis recursos más costosos?')">
+                    💰 Recursos costosos
+                </button>
+            </div>
+            
+            <div class="chat-input-wrapper">
+                <input 
+                    type="text" 
+                    class="chat-input" 
+                    id="messageInput" 
+                    placeholder="Escribe tu consulta sobre infraestructura GCP..."
+                    onkeypress="handleKeyPress(event)"
+                >
+                <button class="send-button" id="sendButton" onclick="sendMessage()">
+                    ➤
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let websocket = null;
+        let sessionId = generateSessionId();
+        let isConnected = false;
+
+        function generateSessionId() {
+            return 'session_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        }
+
+        function connectWebSocket() {
+            const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+            const wsUrl = `${protocol}//${window.location.host}/ws/${sessionId}`;
+            
+            websocket = new WebSocket(wsUrl);
+            
+            websocket.onopen = function(event) {
+                isConnected = true;
+                updateStatusIndicator(true);
+                console.log('WebSocket conectado');
+            };
+            
+            websocket.onmessage = function(event) {
+                const data = JSON.parse(event.data);
+                handleWebSocketMessage(data);
+            };
+            
+            websocket.onclose = function(event) {
+                isConnected = false;
+                updateStatusIndicator(false);
+                console.log('WebSocket desconectado');
+                // Intentar reconectar después de 3 segundos
+                setTimeout(connectWebSocket, 3000);
+            };
+            
+            websocket.onerror = function(error) {
+                console.error('Error en WebSocket:', error);
+                isConnected = false;
+                updateStatusIndicator(false);
+            };
+        }
+
+        function updateStatusIndicator(connected) {
+            const indicator = document.getElementById('statusIndicator');
+            if (connected) {
+                indicator.style.background = '#4caf50';
+            } else {
+                indicator.style.background = '#f44336';
+            }
+        }
+
+        function handleWebSocketMessage(data) {
+            switch(data.type) {
+                case 'typing':
+                    showTypingMessage(data.message);
+                    break;
+                case 'response':
+                    hideTypingMessage();
+                    showAgentMessage(data.data.response, data.data.images, data.data.timestamp);
+                    break;
+                case 'error':
+                    hideTypingMessage();
+                    showErrorMessage(data.message);
+                    break;
+            }
+        }
+
+        function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const message = input.value.trim();
+            
+            if (!message || !isConnected) return;
+            
+            // Mostrar mensaje del usuario
+            showUserMessage(message);
+            
+            // Enviar mensaje por WebSocket
+            websocket.send(JSON.stringify({
+                message: message
+            }));
+            
+            // Limpiar input
+            input.value = '';
+            input.focus();
+        }
+
+        function sendSuggestion(suggestion) {
+            document.getElementById('messageInput').value = suggestion;
+            sendMessage();
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+
+        function showUserMessage(message) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message user';
+            messageDiv.innerHTML = `
+                <div class="message-avatar">👤</div>
+                <div class="message-content">
+                    ${escapeHtml(message)}
+                    <div class="timestamp">${new Date().toLocaleTimeString()}</div>
+                </div>
+            `;
+            messagesContainer.appendChild(messageDiv);
+            scrollToBottom();
+        }
+
+        function showAgentMessage(message, images = [], timestamp) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message agent';
+            
+            let imagesHtml = '';
+            if (images && images.length > 0) {
+                imagesHtml = '<div class="image-container">';
+                images.forEach(img => {
+                    imagesHtml += `<img src="${img}" alt="Imagen generada" class="generated-image">`;
+                });
+                imagesHtml += '</div>';
+            }
+            
+            messageDiv.innerHTML = `
+                <div class="message-avatar">🤖</div>
+                <div class="message-content">
+                    ${formatMessage(message)}
+                    ${imagesHtml}
+                    <div class="timestamp">${new Date(timestamp).toLocaleTimeString()}</div>
+                </div>
+            `;
+            messagesContainer.appendChild(messageDiv);
+            scrollToBottom();
+        }
+
+        function showTypingMessage(message) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message agent typing';
+            typingDiv.id = 'typingMessage';
+            typingDiv.innerHTML = `
+                <div class="message-avatar">🤖</div>
+                <div class="message-content">
+                    <span class="loading-dots">${message}</span>
+                </div>
+            `;
+            messagesContainer.appendChild(typingDiv);
+            scrollToBottom();
+        }
+
+        function hideTypingMessage() {
+            const typingMessage = document.getElementById('typingMessage');
+            if (typingMessage) {
+                typingMessage.remove();
+            }
+        }
+
+        function showErrorMessage(message) {
+            const messagesContainer = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message agent';
+            messageDiv.innerHTML = `
+                <div class="message-avatar">⚠️</div>
+                <div class="message-content error-message">
+                    ${escapeHtml(message)}
+                    <div class="timestamp">${new Date().toLocaleTimeString()}</div>
+                </div>
+            `;
+            messagesContainer.appendChild(messageDiv);
+            scrollToBottom();
+        }
+
+        function formatMessage(message) {
+            // Convertir markdown básico a HTML
+            return escapeHtml(message)
+                .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                .replace(/\n/g, '<br>')
+                .replace(/`(.*?)`/g, '<code>$1</code>');
+        }
+
+        function escapeHtml(text) {
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        function scrollToBottom() {
+            const messagesContainer = document.getElementById('chatMessages');
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+        }
+
+        // Inicializar conexión WebSocket cuando se carga la página
+        document.addEventListener('DOMContentLoaded', function() {
+            connectWebSocket();
+            
+            // Enfocar el input
+            document.getElementById('messageInput').focus();
+        });
+    </script>
+</body>
+</html>

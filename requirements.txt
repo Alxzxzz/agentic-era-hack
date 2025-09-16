@@ -1,3 +1,7 @@
 google-cloud-asset
 google-cloud-billing
 google-cloud-recommender
+fastapi
+uvicorn[standard]
+jinja2
+python-multipart

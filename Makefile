@@ -13,6 +13,17 @@ playground:
 	@echo "==============================================================================="
 	uv run adk web . --port 8501 --reload_agents
 
+# Launch custom web interface
+web:
+	@echo "==============================================================================="
+	@echo "| 🌐 Starting custom web interface for GCP Infrastructure Agent...            |"
+	@echo "|                                                                             |"
+	@echo "| 📱 Access at: http://localhost:8000                                         |"
+	@echo "|                                                                             |"
+	@echo "| 🤖 Features: Custom HTML interface, image generation, real-time chat       |"
+	@echo "==============================================================================="
+	uv run python web_server.py
+
 # Deploy the agent remotely
 backend:
 	# Export dependencies to requirements file using uv export.
