@@ -95,23 +95,22 @@ class RecommenderService:
         """Parsea una recomendación en formato legible"""
         
         try:
-            # Extraer información básica
             rec_name = recommendation.name.split("/")[-1]
             rec_type = recommendation.recommender_subtype
             
-            # Calcular ahorro
             primary_impact = recommendation.primary_impact
             cost_impact = 0
+            category = "GENERAL"
             
-            if primary_impact and primary_impact.cost_projection:
-                cost = primary_impact.cost_projection.cost
-                if cost and cost.units:
-                    cost_impact = abs(int(cost.units))
-            
-            # Extraer detalles
+            if primary_impact:
+                category = primary_impact.category.name
+                if primary_impact.cost_projection:
+                    cost = primary_impact.cost_projection.cost
+                    if cost and cost.units:
+                        cost_impact = abs(int(cost.units))
+
             description = recommendation.description
             
-            # Obtener recurso afectado
             resource = "Unknown"
             if recommendation.content and recommendation.content.operation_groups:
                 for op_group in recommendation.content.operation_groups:
@@ -128,44 +127,37 @@ class RecommenderService:
                 "monthly_savings": cost_impact,
                 "state": recommendation.state_info.state.name,
                 "priority": recommendation.priority.name,
-                "category": recommendation.primary_impact.category.name if recommendation.primary_impact else "COST"
+                "category": category
             }
             
         except Exception as e:
             print(f"Error parsing recommendation: {e}")
             return None
-    
-    def get_cost_recommendations(self) -> Dict:
-        """Obtiene solo recomendaciones de ahorro de costos"""
+
+    def get_categorized_recommendations(self) -> Dict:
+        """Obtiene y categoriza todas las recomendaciones."""
         
         all_recs = self.get_all_recommendations()
         
-        # Filtrar solo las de costos
-        cost_recs = [r for r in all_recs if r.get("category") == "COST" or r.get("monthly_savings", 0) > 0]
-        
-        # Agrupar por tipo
-        grouped = {
-            "vm_rightsizing": [],
-            "idle_resources": [],
-            "committed_use": [],
-            "other": []
+        categorized_recs = {
+            "COST": [],
+            "SECURITY": [],
+            "PERFORMANCE": [],
+            "RELIABILITY": [],
+            "GENERAL": [],
         }
         
-        for rec in cost_recs:
-            if "MachineType" in rec.get("type", ""):
-                grouped["vm_rightsizing"].append(rec)
-            elif "Idle" in rec.get("type", ""):
-                grouped["idle_resources"].append(rec)
-            elif "Commitment" in rec.get("type", ""):
-                grouped["committed_use"].append(rec)
+        for rec in all_recs:
+            category = rec.get("category", "GENERAL")
+            if category in categorized_recs:
+                categorized_recs[category].append(rec)
             else:
-                grouped["other"].append(rec)
+                categorized_recs["GENERAL"].append(rec)
         
-        # Calcular ahorro total
-        total_savings = sum(r.get("monthly_savings", 0) for r in cost_recs)
+        total_savings = sum(r.get("monthly_savings", 0) for r in categorized_recs["COST"])
         
         return {
-            "recommendations": grouped,
+            "recommendations": categorized_recs,
             "total_monthly_savings": total_savings,
-            "recommendation_count": len(cost_recs)
+            "recommendation_count": len(all_recs)
         }

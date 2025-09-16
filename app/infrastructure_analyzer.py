@@ -16,7 +16,7 @@ class InfrastructureAnalyzer:
         """Obtiene recomendaciones oficiales de Google Cloud Recommender"""
         
         recommender = RecommenderService(self.project_id)
-        recommendations = recommender.get_cost_recommendations()
+        recommendations = recommender.get_categorized_recommendations()
         
         return recommendations
     # Mantener el resto de funciones igual

@@ -27,7 +27,6 @@ def analyze_infrastructure(query: str) -> str:
     project_id = get_project_id() or default_project_id
     analyzer = InfrastructureAnalyzer(project_id=project_id)
     resources = analyzer.get_infrastructure_summary()
-    print(f"Resources: {resources}")
     
     response = f"""🔍 **Infrastructure Analysis Complete for project {project_id}!**
 
@@ -35,55 +34,34 @@ def analyze_infrastructure(query: str) -> str:
 - Total Monthly Cost: ${resources['total_monthly_cost']}
 """
 
-    if resources['vms']:
+    if resources.get('vms'):
         response += f"- Virtual Machines: {len(resources['vms'])} instances\n"
-    if resources['databases']:
+    if resources.get('databases'):
         response += f"- Databases: {len(resources['databases'])} Cloud SQL instances\n"
-    if resources['storage']:
+    if resources.get('storage'):
         response += f"- Storage: {len(resources['storage'])} buckets\n"
-    if resources['clusters']:
+    if resources.get('clusters'):
         response += f"- GKE Clusters: {len(resources['clusters'])} clusters\n"
-    if resources['redis_instances']:
+    if resources.get('redis_instances'):
         response += f"- Memorystore for Redis: {len(resources['redis_instances'])} instances\n"
-    if resources['spanner_instances']:
+    if resources.get('spanner_instances'):
         response += f"- Spanner: {len(resources['spanner_instances'])} instances\n"
 
     response += "\n💰 **Cost Breakdown:**\n"
-    if resources['vms']:
-        response += "VMs:\n"
-        response += chr(10).join([f"  • {vm['name']}: ${vm['monthly_cost']}/month ({vm['type']})" for vm in resources['vms']])
-        response += "\n"
-
-    if resources['databases']:
-        response += "Databases:\n"
-        response += chr(10).join([f"  • {db['name']}: ${db['monthly_cost']}/month" for db in resources['databases']])
-        response += "\n"
-
-    if resources['storage']:
-        response += "Storage:\n"
-        response += chr(10).join([f"  • {bucket['name']}: ${bucket['monthly_cost']}/month ({bucket['size_gb']}GB)" for bucket in resources['storage']])
-        response += "\n"
-
-    if resources['clusters']:
-        response += "GKE Clusters:\n"
-        response += chr(10).join([f"  • {c['name']}: ${c['monthly_cost']}/month" for c in resources['clusters']])
-        response += "\n"
-
-    if resources['redis_instances']:
-        response += "Memorystore for Redis:\n"
-        response += chr(10).join([f"  • {r['name']}: ${r['monthly_cost']}/month" for r in resources['redis_instances']])
-        response += "\n"
-
-    if resources['spanner_instances']:
-        response += "Spanner:\n"
-        response += chr(10).join([f"  • {s['name']}: ${s['monthly_cost']}/month" for s in resources['spanner_instances']])
-        response += "\n"
-
-    if resources['potential_savings'] > 0:
-        response += f"\n💡 **Optimization Opportunities:**\n- Potential monthly savings: ${resources['potential_savings']}\n"
+    if resources.get('vms'):
+        response += "VMs:\n" + "\n".join([f"  • {vm['name']}: ${vm['monthly_cost']}/month ({vm['type']})" for vm in resources['vms']]) + "\n"
+    if resources.get('databases'):
+        response += "Databases:\n" + "\n".join([f"  • {db['name']}: ${db['monthly_cost']}/month" for db in resources['databases']]) + "\n"
+    if resources.get('storage'):
+        response += f"Storage: {len(resources['storage'])} buckets totaling ${sum(b['monthly_cost'] for b in resources['storage']):.2f}/month.\n"
+    if resources.get('clusters'):
+        response += "GKE Clusters:\n" + "\n".join([f"  • {c['name']}: ${c['monthly_cost']}/month" for c in resources['clusters']]) + "\n"
+    if resources.get('redis_instances'):
+        response += "Memorystore for Redis:\n" + "\n".join([f"  • {r['name']}: ${r['monthly_cost']}/month" for r in resources['redis_instances']]) + "\n"
+    if resources.get('spanner_instances'):
+        response += "Spanner:\n" + "\n".join([f"  • {s['name']}: ${s['monthly_cost']}/month" for s in resources['spanner_instances']]) + "\n"
 
     return response
-
 
 def generate_cost_visualization(query: str) -> str:
     """Generates a prompt for creating infrastructure cost visualization.
@@ -99,8 +77,7 @@ def generate_cost_visualization(query: str) -> str:
     resources = analyzer.get_infrastructure_summary()
     prompt = analyzer.generate_cost_prompt(resources)
     
-    return f"""
-🎨 **Visualization Prompt Generated for project {project_id}!**
+    return f"""🎨 **Visualization Prompt Generated for project {project_id}!**
 
 I've created a detailed prompt for generating your infrastructure diagram:
 
@@ -115,14 +92,33 @@ I've created a detailed prompt for generating your infrastructure diagram:
 To generate the actual image, this prompt can be used with Vertex AI's Imagen model.
 """
 
-
 def get_google_cloud_recommendations(query: str) -> str:
-    """Obtiene recomendaciones oficiales de optimización de Google Cloud en formato JSON."""
+    """Gets official Google Cloud optimization recommendations."""
     project_id = get_project_id() or default_project_id
     analyzer = InfrastructureAnalyzer(project_id=project_id)
-    recommendations = analyzer.get_google_recommendations()
-    return json.dumps(recommendations, indent=2)
+    data = analyzer.get_google_recommendations()
+    
+    response = f"""💡 **Google Cloud Optimization Recommendations for {project_id}**
 
+Found {data['recommendation_count']} total recommendations.
+💰 **Potential Monthly Savings:** ${data['total_monthly_savings']:.2f}
+
+"""
+    
+    for category, recs in data['recommendations'].items():
+        if recs:
+            response += f"**{category.capitalize()} Recommendations ({len(recs)}):**\n"
+            response += format_recommendations(recs)
+            
+    return response
+
+def format_recommendations(recs: list) -> str:
+    """Formats a list of recommendations into a string."""
+    formatted_string = ""
+    for rec in recs:
+        savings = f" (Est. Savings: ${rec['monthly_savings']}/month)" if rec['monthly_savings'] > 0 else ""
+        formatted_string += f"- **{rec['type']}** on `{rec['resource']}`: {rec['description']}{savings}\n"
+    return formatted_string + "\n"
 
 def get_weather(query: str) -> str:
     """Simulates a web search. Use it get information on weather.
@@ -167,6 +163,6 @@ root_agent = Agent(
     4. Set the project to analyze using the set_project_id tool.
     
     When users ask about infrastructure, costs, or optimization, use the analyze_infrastructure 
-    and generate_cost_visualization tools. Be helpful and proactive in suggesting cost savings.""",
+    and get_google_cloud_recommendations tools. Be helpful and proactive in suggesting cost savings.""",
     tools=[set_project_id, analyze_infrastructure, get_google_cloud_recommendations, generate_cost_visualization, get_weather, get_current_time],
 )
