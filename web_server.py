@@ -74,8 +74,8 @@ class ConnectionManager:
 
 manager = ConnectionManager()
 
-# Función para generar imágenes con Vertex AI
-async def generate_infrastructure_image(resources: Dict) -> Optional[str]:
+# Función para generar imágenes con Vertex AI (DESHABILITADA)
+async def generate_infrastructure_image_disabled(resources: Dict) -> Optional[str]:
     """Genera una imagen de infraestructura usando Vertex AI Imagen"""
     try:
         import vertexai
@@ -182,23 +182,23 @@ async def process_agent_message(user_message: str, session_id: str) -> Dict[str,
                         if hasattr(part, 'text') and part.text:
                             response_text += part.text
 
-        # Verificar si la respuesta indica que se debe generar una imagen
-        if "visualización" in response_text.lower() or "diagrama" in response_text.lower():
-            try:
-                from app.infrastructure_analyzer import InfrastructureAnalyzer
-                from app.state_manager import get_project_id
-                
-                project_id = get_project_id() or os.getenv("GOOGLE_CLOUD_PROJECT")
-                analyzer = InfrastructureAnalyzer(project_id)
-                resources = analyzer.get_infrastructure_summary()
-                
-                # Generar imagen
-                image_data = await generate_infrastructure_image(resources)
-                if image_data:
-                    images.append(image_data)
-                    
-            except Exception as e:
-                logger.warning(f"No se pudo generar imagen: {e}")
+        # Generación de imágenes deshabilitada para evitar imágenes no deseadas
+        # if "visualización" in response_text.lower() or "diagrama" in response_text.lower():
+        #     try:
+        #         from app.infrastructure_analyzer import InfrastructureAnalyzer
+        #         from app.state_manager import get_project_id
+        #         
+        #         project_id = get_project_id() or os.getenv("GOOGLE_CLOUD_PROJECT")
+        #         analyzer = InfrastructureAnalyzer(project_id)
+        #         resources = analyzer.get_infrastructure_summary()
+        #         
+        #         # Generar imagen
+        #         image_data = await generate_infrastructure_image(resources)
+        #         if image_data:
+        #             images.append(image_data)
+        #             
+        #     except Exception as e:
+        #         logger.warning(f"No se pudo generar imagen: {e}")
 
         return {
             "response": response_text,

@@ -455,13 +455,14 @@
             messageDiv.className = 'message agent';
             
             let imagesHtml = '';
-            if (images && images.length > 0) {
-                imagesHtml = '<div class="image-container">';
-                images.forEach(img => {
-                    imagesHtml += `<img src="${img}" alt="Imagen generada" class="generated-image">`;
-                });
-                imagesHtml += '</div>';
-            }
+            // Generación de imágenes deshabilitada
+            // if (images && images.length > 0) {
+            //     imagesHtml = '<div class="image-container">';
+            //     images.forEach(img => {
+            //         imagesHtml += `<img src="${img}" alt="Imagen generada" class="generated-image">`;
+            //     });
+            //     imagesHtml += '</div>';
+            // }
             
             messageDiv.innerHTML = `
                 <div class="message-avatar">🤖</div>
