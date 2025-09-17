@@ -31,8 +31,8 @@ logger = logging.getLogger(__name__)
 
 # Crear aplicación FastAPI
 app = FastAPI(
-    title="Agente de Optimización GCP - Interfaz Personalizada",
-    description="Interfaz web personalizada para el agente de análisis de infraestructura GCP",
+    title="MyFinOps agent - Interfaz Personalizada",
+    description="Interfaz web personalizada para MyFinOps agent de análisis de infraestructura GCP",
     version="1.0.0"
 )
 
@@ -289,7 +289,7 @@ async def get_agent_info():
     """Información sobre el agente"""
     return {
         "name": root_agent.name,
-        "description": "Agente de optimización de infraestructura GCP",
+        "description": "MyFinOps agent - Agente de optimización de infraestructura GCP",
         "capabilities": [
             "Análisis de costos de infraestructura",
             "Recomendaciones de optimización",
