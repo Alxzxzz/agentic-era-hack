@@ -24,11 +24,51 @@ The agent's architecture is centered around a core `root_agent` that orchestrate
 
 *   **Agent:** `root_agent` (an instance of ADK's `Agent`)
 *   **AI Model:** `gemini-2.5-flash`
-*   **Tools:**
-    *   `set_project_id`: Sets the GCP project ID for analysis.
-    *   `analyze_infrastructure`: Analyzes resources using the Google Cloud Asset Inventory.
-    *   `get_google_cloud_recommendations`: Fetches recommendations from the Google Cloud Recommender API.
-    *   `generate_infrastructure_image`: Creates a visual diagram of the infrastructure.
+
+### Architectural Design
+
+The agent employs a ReAct (Reason-Act) pattern through the ADK, which is a form of chain-of-thought reasoning. The architecture is modular and well-defined for its purpose. It is designed to be a single, specialized agent and does not implement more complex patterns like multi-agent systems.
+
+### Tool Integration & Function Calling
+
+The agent effectively selects and utilizes a set of four distinct tools to interact with GCP APIs and Gemini for image generation:
+
+*   `set_project_id`: Sets the GCP project ID for analysis.
+*   `analyze_infrastructure`: Analyzes resources using the Google Cloud Asset Inventory.
+*   `get_google_cloud_recommendations`: Fetches recommendations from the Google Cloud Recommender API.
+*   `generate_infrastructure_image`: Creates a visual diagram of the infrastructure.
+
+### Task Decomposition & Planning
+
+The current version of the agent responds to direct requests with a specific tool. It does not yet implement complex multi-step planning for a single high-level goal.
+
+## Implementation & Production Readiness
+
+### Effective Use of GCP & Starter Pack
+
+This project is a canonical example of the `agent-starter-pack`. It utilizes `uv` for package management, a `Makefile` for common commands, and the recommended folder structure. It leverages Vertex AI for the agent and key GCP services like Asset Inventory and Recommender.
+
+### Code Quality
+
+The code is modularized into services like `infrastructure_analyzer` and `recommender_service`. It uses type hints and includes basic error handling for GCP client initialization.
+
+### CI/CD & Observability
+
+The repository contains configuration files for a complete CI/CD pipeline using Google Cloud Build (`.cloudbuild/`) and infrastructure deployment with Terraform (`deployment/`).
+
+## Problem, Solution & UX
+
+### Problem-Solution Fit
+
+The agent solves a clear and valuable real-world problem: the complexity of analyzing and optimizing GCP infrastructure costs. The solution is practical and provides high value for DevOps and FinOps teams.
+
+### User Experience
+
+The interaction with the agent is conversational and direct. The `Makefile` simplifies the process of launching a local playground (`make playground`) for a smooth user experience.
+
+## Innovation
+
+The application of an AI agent for cloud infrastructure management (CloudOps) is an innovative field with significant market potential to simplify complex operations.
 
 ## Getting Started
 
@@ -76,7 +116,7 @@ This will start a Streamlit application where you can chat with your agent.
 | `make playground`    | Launch the Streamlit interface for testing the agent locally and remotely.                  |
 | `make backend`       | Deploy the agent to Agent Engine.                                                           |
 | `make test`          | Run unit and integration tests.                                                             |
-| `make lint`          | Run code quality checks (codespell, ruff, mypy).                                             |
+| `make lint`          | Run code quality checks (codespell, ruff, mypy).                                            |
 | `make setup-dev-env` | Set up the development environment resources using Terraform.                               |
 | `uv run jupyter lab` | Launch Jupyter notebook.                                                                    |
 
@@ -121,7 +161,7 @@ The project is configured with the following observability features:
 *   **Cloud Logging:** All logs from the agent and the CI/CD pipeline are sent to Cloud Logging.
 *   **Cloud Trace:** The application uses OpenTelemetry to send traces to Cloud Trace for performance monitoring.
 *   **BigQuery:** Logs are sinked to BigQuery for long-term storage and analysis.
-*   **Looker Studio:** A [Looker Studio dashboard template](https://lookerstudio.google.com/reporting/46b35167-b38b-4e44-bd37-701ef4307418/page/tEnnC) is available for visualizing events logged in BigQuery.
+*   **Looker Studio:** A [Looker Studio dashboard template](https://lookerstudio.google.com/reporting/46b38b-4e44-bd37-701ef4307418/page/tEnnC) is available for visualizing events logged in BigQuery.
 
 ## Contributing
 
