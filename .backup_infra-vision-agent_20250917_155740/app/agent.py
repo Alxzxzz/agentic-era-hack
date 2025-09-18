@@ -136,7 +136,7 @@ def format_recommendations(recs: list) -> str:
     """Formats a list of recommendations into a string."""
     formatted_string = ""
     for rec in recs:
-        savings = f" (Est. Savings: ${rec.get('monthly_cost', 0)}/month)" if rec.get('monthly_cost', 0) > 0 else ""
+        savings = f" (Est. Savings: ${rec['monthly_cost']}/month)" if rec['monthly_cost'] > 0 else ""
         formatted_string += f"- **{rec['type']}** on `{rec['resource']}`: {rec['description']}{savings}\n"
     return formatted_string + "\n"
 

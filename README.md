@@ -82,9 +82,6 @@ This section is aligned with the `EVALUATION_CHECKLIST.md` file to provide a tra
 - [x] **Tool Integration & Function Calling**
   - **Reason:** This is a very strong point of the project. The agent effectively selects between 4 distinct tools that interact with GCP APIs (Asset Inventory, Recommender) and Gemini for image generation.
 
-- [ ] **Task Decomposition & Planning**
-  - **Reason:** The current agent responds to direct requests with a specific tool. It does not yet demonstrate complex multi-step planning for a single high-level goal.
-
 ### Implementation & Production Readiness (30%)
 
 - [x] **Effective Use of GCP & Starter Pack**
@@ -108,9 +105,6 @@ This section is aligned with the `EVALUATION_CHECKLIST.md` file to provide a tra
 
 - [x] **Innovation & Market Potential**
   - **Reason:** The application of an AI agent for infrastructure management in the cloud (CloudOps) is an innovative field with great market potential to simplify complex operations.
-
-- [ ] **Clarity of Presentation & Demo**
-  - **Reason:** This is a criterion about the human presentation of the project, so it cannot be automatically evaluated from the code.
 
 ## Getting Started
 

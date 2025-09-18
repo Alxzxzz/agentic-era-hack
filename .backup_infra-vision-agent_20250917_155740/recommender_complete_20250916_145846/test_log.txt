@@ -1,0 +1,39 @@
+Tue Sep 16 02:58:52 PM UTC 2025: SUCCESS - google.iam.policy.Recommender in global - 203 recommendations
+Tue Sep 16 02:58:54 PM UTC 2025: SUCCESS - google.iam.serviceAccount.ChangeRiskRecommender in global - 49 recommendations
+Tue Sep 16 02:58:57 PM UTC 2025: SUCCESS - google.iam.policy.ChangeRiskRecommender in global - 19 recommendations
+Tue Sep 16 02:58:58 PM UTC 2025: EMPTY - google.compute.instance.IdleResourceRecommender in europe-west1-b
+Tue Sep 16 02:59:00 PM UTC 2025: EMPTY - google.compute.instance.MachineTypeRecommender in europe-west1-b
+Tue Sep 16 02:59:02 PM UTC 2025: EMPTY - google.compute.instanceGroupManager.MachineTypeRecommender in europe-west1-b
+Tue Sep 16 02:59:04 PM UTC 2025: SUCCESS - google.compute.commitment.UsageCommitmentRecommender in europe-west1 - 6 recommendations
+Tue Sep 16 02:59:05 PM UTC 2025: EMPTY - google.compute.disk.IdleResourceRecommender in europe-west1-b
+Tue Sep 16 02:59:07 PM UTC 2025: EMPTY - google.compute.address.IdleResourceRecommender in europe-west1
+Tue Sep 16 02:59:09 PM UTC 2025: EMPTY - google.compute.image.IdleResourceRecommender in global
+Tue Sep 16 02:59:11 PM UTC 2025: EMPTY - google.compute.IdleResourceRecommender in europe-west1-b
+Tue Sep 16 02:59:12 PM UTC 2025: EMPTY - google.compute.RightSizeResourceRecommender in europe-west1-b
+Tue Sep 16 02:59:14 PM UTC 2025: EMPTY - google.storage.bucket.SoftDeleteRecommender in global
+Tue Sep 16 02:59:16 PM UTC 2025: EMPTY - google.storage.bucket.AnywhereCacheRecommender in global
+Tue Sep 16 02:59:18 PM UTC 2025: EMPTY - google.cloudsql.instance.IdleRecommender in europe-west1
+Tue Sep 16 02:59:19 PM UTC 2025: EMPTY - google.cloudsql.instance.OverprovisionedRecommender in europe-west1
+Tue Sep 16 02:59:21 PM UTC 2025: SUCCESS - google.cloudsql.instance.UnderprovisionedRecommender in europe-west1 - 1 recommendations
+Tue Sep 16 02:59:23 PM UTC 2025: SUCCESS - google.cloudsql.instance.SecurityRecommender in europe-west1 - 4 recommendations
+Tue Sep 16 02:59:24 PM UTC 2025: EMPTY - google.cloudsql.instance.PerformanceRecommender in europe-west1
+Tue Sep 16 02:59:26 PM UTC 2025: EMPTY - google.cloudsql.instance.ReliabilityRecommender in europe-west1
+Tue Sep 16 02:59:28 PM UTC 2025: EMPTY - google.cloudsql.instance.OutOfDiskRecommender in europe-west1
+Tue Sep 16 02:59:29 PM UTC 2025: EMPTY - google.run.service.CostRecommender in europe-west1
+Tue Sep 16 02:59:31 PM UTC 2025: SUCCESS - google.run.service.SecurityRecommender in europe-west1 - 8 recommendations
+Tue Sep 16 02:59:33 PM UTC 2025: SUCCESS - google.run.service.IdentityRecommender in europe-west1 - 1 recommendations
+Tue Sep 16 02:59:35 PM UTC 2025: EMPTY - google.bigquery.table.PartitionClusterRecommender in global
+Tue Sep 16 02:59:36 PM UTC 2025: EMPTY - google.bigquery.capacityCommitments.Recommender in europe-west1
+Tue Sep 16 02:59:38 PM UTC 2025: EMPTY - google.container.DiagnosisRecommender in europe-west1-b
+Tue Sep 16 02:59:40 PM UTC 2025: EMPTY - google.logging.productSuggestion.ContainerRecommender in global
+Tue Sep 16 02:59:41 PM UTC 2025: EMPTY - google.resourcemanager.projectUtilization.Recommender in global
+Tue Sep 16 02:59:43 PM UTC 2025: EMPTY - google.resourcemanager.serviceLimit.Recommender in global
+Tue Sep 16 02:59:45 PM UTC 2025: SUCCESS - google.resourcemanager.project.ChangeRiskRecommender in global - 1 recommendations
+Tue Sep 16 02:59:47 PM UTC 2025: EMPTY - google.cloudfunctions.PerformanceRecommender in europe-west1
+Tue Sep 16 02:59:49 PM UTC 2025: EMPTY - google.firestore.database.FirebaseRulesRecommender in global
+Tue Sep 16 02:59:50 PM UTC 2025: EMPTY - google.firestore.database.ReliabilityRecommender in global
+Tue Sep 16 02:59:52 PM UTC 2025: EMPTY - google.cloud.security.GeneralRecommender in global
+Tue Sep 16 02:59:54 PM UTC 2025: EMPTY - google.cloud.RecentChangeRecommender in global
+Tue Sep 16 02:59:55 PM UTC 2025: EMPTY - google.cloud.deprecation.GeneralRecommender in global
+Tue Sep 16 02:59:57 PM UTC 2025: EMPTY - google.clouderrorreporting.Recommender in global
+Tue Sep 16 02:59:59 PM UTC 2025: EMPTY - google.gmp.project.ManagementRecommender in global

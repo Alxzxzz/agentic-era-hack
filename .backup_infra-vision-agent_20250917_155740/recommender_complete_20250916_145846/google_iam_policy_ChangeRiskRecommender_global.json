@@ -1,0 +1,1085 @@
+[
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/global/insightTypes/google.iam.policy.ChangeRiskInsight/insights/80275334-e72f-458e-8bfb-37264d54128a"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "custom",
+              "path": "/iamPolicy/bindings/*/members/*",
+              "pathFilters": {
+                "/iamPolicy/bindings/*/members/*": "luka.vardanidze@makingscience.com",
+                "/iamPolicy/bindings/*/role": "roles/run.developer"
+              },
+              "resource": "//cloudresourcemanager.googleapis.com/projects/85988732320",
+              "resourceType": "cloudresourcemanager.googleapis.com/Project",
+              "value": "https://cloud.google.com/recommender/docs/change-risk-recommendations"
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "asset": {
+          "assetType": "cloudresourcemanager.googleapis.com/Project",
+          "iamPolicy": {
+            "bindings": [
+              {
+                "members": [
+                  "luka.vardanidze@makingscience.com"
+                ],
+                "role": "roles/run.developer"
+              }
+            ]
+          },
+          "name": "gauss--core--dev--af"
+        }
+      }
+    },
+    "description": "This role must remain active and some permissions must be kept.",
+    "etag": "\"61ce6f86629ecd12\"",
+    "lastRefreshTime": "2025-06-15T07:00:00Z",
+    "name": "projects/85988732320/locations/global/recommenders/google.iam.policy.ChangeRiskRecommender/recommendations/0763285b-a0d4-40c9-b399-131a15c30d68",
+    "primaryImpact": {
+      "category": "RELIABILITY"
+    },
+    "priority": "P4",
+    "recommenderSubtype": "REVIEW_RISK",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//cloudresourcemanager.googleapis.com/projects/85988732320"
+    ]
+  },
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/global/insightTypes/google.iam.policy.ChangeRiskInsight/insights/4257455a-1f9b-488a-8a7e-f318191551d7"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "custom",
+              "path": "/iamPolicy/bindings/*/members/*",
+              "pathFilters": {
+                "/iamPolicy/bindings/*/members/*": "service-85988732320@gcp-sa-vpcaccess.iam.gserviceaccount.com",
+                "/iamPolicy/bindings/*/role": "roles/vpcaccess.serviceAgent"
+              },
+              "resource": "//cloudresourcemanager.googleapis.com/projects/85988732320",
+              "resourceType": "cloudresourcemanager.googleapis.com/Project",
+              "value": "https://cloud.google.com/recommender/docs/change-risk-recommendations"
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "asset": {
+          "assetType": "cloudresourcemanager.googleapis.com/Project",
+          "iamPolicy": {
+            "bindings": [
+              {
+                "members": [
+                  "service-85988732320@gcp-sa-vpcaccess.iam.gserviceaccount.com"
+                ],
+                "role": "roles/vpcaccess.serviceAgent"
+              }
+            ]
+          },
+          "name": "gauss--core--dev--af"
+        }
+      }
+    },
+    "description": "This role must remain active and some permissions must be kept.",
+    "etag": "\"559bdd31178fc3cd\"",
+    "lastRefreshTime": "2025-06-15T07:00:00Z",
+    "name": "projects/85988732320/locations/global/recommenders/google.iam.policy.ChangeRiskRecommender/recommendations/311e3f3d-06a3-4168-bbd9-2f68976718cb",
+    "primaryImpact": {
+      "category": "RELIABILITY"
+    },
+    "priority": "P4",
+    "recommenderSubtype": "REVIEW_RISK",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//cloudresourcemanager.googleapis.com/projects/85988732320"
+    ]
+  },
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/global/insightTypes/google.iam.policy.ChangeRiskInsight/insights/d9319135-2205-4c5f-9dcb-f89b6edf95f0"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "custom",
+              "path": "/iamPolicy/bindings/*/members/*",
+              "pathFilters": {
+                "/iamPolicy/bindings/*/members/*": "gauss.dev.viewer@group.makingscience.com",
+                "/iamPolicy/bindings/*/role": "roles/logging.viewer"
+              },
+              "resource": "//cloudresourcemanager.googleapis.com/projects/85988732320",
+              "resourceType": "cloudresourcemanager.googleapis.com/Project",
+              "value": "https://cloud.google.com/recommender/docs/change-risk-recommendations"
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "asset": {
+          "assetType": "cloudresourcemanager.googleapis.com/Project",
+          "iamPolicy": {
+            "bindings": [
+              {
+                "members": [
+                  "gauss.dev.viewer@group.makingscience.com"
+                ],
+                "role": "roles/logging.viewer"
+              }
+            ]
+          },
+          "name": "gauss--core--dev--af"
+        }
+      }
+    },
+    "description": "This role must remain active and some permissions must be kept.",
+    "etag": "\"42dac1ad6f71aa85\"",
+    "lastRefreshTime": "2025-06-15T07:00:00Z",
+    "name": "projects/85988732320/locations/global/recommenders/google.iam.policy.ChangeRiskRecommender/recommendations/50a98988-b233-491f-b2a6-3ce6cc36d64e",
+    "primaryImpact": {
+      "category": "RELIABILITY"
+    },
+    "priority": "P4",
+    "recommenderSubtype": "REVIEW_RISK",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//cloudresourcemanager.googleapis.com/projects/85988732320"
+    ]
+  },
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/global/insightTypes/google.iam.policy.ChangeRiskInsight/insights/1851611a-28e1-40e0-b5d3-2d69c80370d6"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "custom",
+              "path": "/iamPolicy/bindings/*/members/*",
+              "pathFilters": {
+                "/iamPolicy/bindings/*/members/*": "luka.vardanidze@makingscience.com",
+                "/iamPolicy/bindings/*/role": "roles/run.admin"
+              },
+              "resource": "//cloudresourcemanager.googleapis.com/projects/85988732320",
+              "resourceType": "cloudresourcemanager.googleapis.com/Project",
+              "value": "https://cloud.google.com/recommender/docs/change-risk-recommendations"
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "asset": {
+          "assetType": "cloudresourcemanager.googleapis.com/Project",
+          "iamPolicy": {
+            "bindings": [
+              {
+                "members": [
+                  "luka.vardanidze@makingscience.com"
+                ],
+                "role": "roles/run.admin"
+              }
+            ]
+          },
+          "name": "gauss--core--dev--af"
+        }
+      }
+    },
+    "description": "This role must remain active and some permissions must be kept.",
+    "etag": "\"45c576ab0705c918\"",
+    "lastRefreshTime": "2025-06-15T07:00:00Z",
+    "name": "projects/85988732320/locations/global/recommenders/google.iam.policy.ChangeRiskRecommender/recommendations/55553082-b363-4735-bffa-2a4ca6224633",
+    "primaryImpact": {
+      "category": "RELIABILITY"
+    },
+    "priority": "P4",
+    "recommenderSubtype": "REVIEW_RISK",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//cloudresourcemanager.googleapis.com/projects/85988732320"
+    ]
+  },
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/global/insightTypes/google.iam.policy.ChangeRiskInsight/insights/1eacfd26-50e8-49b5-9268-b47b1569123d"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "custom",
+              "path": "/iamPolicy/bindings/*/members/*",
+              "pathFilters": {
+                "/iamPolicy/bindings/*/members/*": "gauss--core--tv--pm--pm-tugy@gauss--core--dev--af.iam.gserviceaccount.com",
+                "/iamPolicy/bindings/*/role": "roles/datastore.owner"
+              },
+              "resource": "//cloudresourcemanager.googleapis.com/projects/85988732320",
+              "resourceType": "cloudresourcemanager.googleapis.com/Project",
+              "value": "https://cloud.google.com/recommender/docs/change-risk-recommendations"
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "asset": {
+          "assetType": "cloudresourcemanager.googleapis.com/Project",
+          "iamPolicy": {
+            "bindings": [
+              {
+                "members": [
+                  "gauss--core--tv--pm--pm-tugy@gauss--core--dev--af.iam.gserviceaccount.com"
+                ],
+                "role": "roles/datastore.owner"
+              }
+            ]
+          },
+          "name": "gauss--core--dev--af"
+        }
+      }
+    },
+    "description": "This role must remain active and some permissions must be kept.",
+    "etag": "\"b6ac62e3169c79cf\"",
+    "lastRefreshTime": "2025-06-15T07:00:00Z",
+    "name": "projects/85988732320/locations/global/recommenders/google.iam.policy.ChangeRiskRecommender/recommendations/5bc0dd63-a747-425f-97c9-9c941cd00b28",
+    "primaryImpact": {
+      "category": "RELIABILITY"
+    },
+    "priority": "P4",
+    "recommenderSubtype": "REVIEW_RISK",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//cloudresourcemanager.googleapis.com/projects/85988732320"
+    ]
+  },
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/global/insightTypes/google.iam.policy.ChangeRiskInsight/insights/07d3d140-5370-4b56-97c1-710a0784a156"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "custom",
+              "path": "/iamPolicy/bindings/*/members/*",
+              "pathFilters": {
+                "/iamPolicy/bindings/*/members/*": "giorgi.patsatsia@makingscience.com",
+                "/iamPolicy/bindings/*/role": "roles/owner"
+              },
+              "resource": "//cloudresourcemanager.googleapis.com/projects/85988732320",
+              "resourceType": "cloudresourcemanager.googleapis.com/Project",
+              "value": "https://cloud.google.com/recommender/docs/change-risk-recommendations"
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "asset": {
+          "assetType": "cloudresourcemanager.googleapis.com/Project",
+          "iamPolicy": {
+            "bindings": [
+              {
+                "members": [
+                  "giorgi.patsatsia@makingscience.com"
+                ],
+                "role": "roles/owner"
+              }
+            ]
+          },
+          "name": "gauss--core--dev--af"
+        }
+      }
+    },
+    "description": "This role must remain active and some permissions must be kept.",
+    "etag": "\"9f4be75291691b07\"",
+    "lastRefreshTime": "2025-06-15T07:00:00Z",
+    "name": "projects/85988732320/locations/global/recommenders/google.iam.policy.ChangeRiskRecommender/recommendations/5c596d70-8b9a-45d7-a27a-6a850232647a",
+    "primaryImpact": {
+      "category": "RELIABILITY"
+    },
+    "priority": "P4",
+    "recommenderSubtype": "REVIEW_RISK",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//cloudresourcemanager.googleapis.com/projects/85988732320"
+    ]
+  },
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/global/insightTypes/google.iam.policy.ChangeRiskInsight/insights/a1248e99-d363-4cbb-96c4-10555c5e452d"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "custom",
+              "path": "/iamPolicy/bindings/*/members/*",
+              "pathFilters": {
+                "/iamPolicy/bindings/*/members/*": "trustgen.dev.viewer@group.makingscience.com",
+                "/iamPolicy/bindings/*/role": "roles/logging.viewer"
+              },
+              "resource": "//cloudresourcemanager.googleapis.com/projects/85988732320",
+              "resourceType": "cloudresourcemanager.googleapis.com/Project",
+              "value": "https://cloud.google.com/recommender/docs/change-risk-recommendations"
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "asset": {
+          "assetType": "cloudresourcemanager.googleapis.com/Project",
+          "iamPolicy": {
+            "bindings": [
+              {
+                "members": [
+                  "trustgen.dev.viewer@group.makingscience.com"
+                ],
+                "role": "roles/logging.viewer"
+              }
+            ]
+          },
+          "name": "gauss--core--dev--af"
+        }
+      }
+    },
+    "description": "This role must remain active and some permissions must be kept.",
+    "etag": "\"5f2dc32ae6777d9d\"",
+    "lastRefreshTime": "2025-06-15T07:00:00Z",
+    "name": "projects/85988732320/locations/global/recommenders/google.iam.policy.ChangeRiskRecommender/recommendations/85147572-4e8d-41f4-9702-1d7a3229d77b",
+    "primaryImpact": {
+      "category": "RELIABILITY"
+    },
+    "priority": "P4",
+    "recommenderSubtype": "REVIEW_RISK",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//cloudresourcemanager.googleapis.com/projects/85988732320"
+    ]
+  },
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/global/insightTypes/google.iam.policy.ChangeRiskInsight/insights/0a620215-b47e-4850-843f-7fe5591f9f67"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "custom",
+              "path": "/iamPolicy/bindings/*/members/*",
+              "pathFilters": {
+                "/iamPolicy/bindings/*/members/*": "85988732320@cloudservices.gserviceaccount.com",
+                "/iamPolicy/bindings/*/role": "roles/editor"
+              },
+              "resource": "//cloudresourcemanager.googleapis.com/projects/85988732320",
+              "resourceType": "cloudresourcemanager.googleapis.com/Project",
+              "value": "https://cloud.google.com/recommender/docs/change-risk-recommendations"
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "asset": {
+          "assetType": "cloudresourcemanager.googleapis.com/Project",
+          "iamPolicy": {
+            "bindings": [
+              {
+                "members": [
+                  "85988732320@cloudservices.gserviceaccount.com"
+                ],
+                "role": "roles/editor"
+              }
+            ]
+          },
+          "name": "gauss--core--dev--af"
+        }
+      }
+    },
+    "description": "This role must remain active and some permissions must be kept.",
+    "etag": "\"9301269470468aa6\"",
+    "lastRefreshTime": "2025-06-15T07:00:00Z",
+    "name": "projects/85988732320/locations/global/recommenders/google.iam.policy.ChangeRiskRecommender/recommendations/8e0baa65-6fb0-467a-959f-de90e86ba83f",
+    "primaryImpact": {
+      "category": "RELIABILITY"
+    },
+    "priority": "P4",
+    "recommenderSubtype": "REVIEW_RISK",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//cloudresourcemanager.googleapis.com/projects/85988732320"
+    ]
+  },
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/global/insightTypes/google.iam.policy.ChangeRiskInsight/insights/ab8a5589-0e1b-42fa-bf09-42cddb88234e"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "custom",
+              "path": "/iamPolicy/bindings/*/members/*",
+              "pathFilters": {
+                "/iamPolicy/bindings/*/members/*": "luka.vardanidze@makingscience.com",
+                "/iamPolicy/bindings/*/role": "roles/cloudfunctions.admin"
+              },
+              "resource": "//cloudresourcemanager.googleapis.com/projects/85988732320",
+              "resourceType": "cloudresourcemanager.googleapis.com/Project",
+              "value": "https://cloud.google.com/recommender/docs/change-risk-recommendations"
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "asset": {
+          "assetType": "cloudresourcemanager.googleapis.com/Project",
+          "iamPolicy": {
+            "bindings": [
+              {
+                "members": [
+                  "luka.vardanidze@makingscience.com"
+                ],
+                "role": "roles/cloudfunctions.admin"
+              }
+            ]
+          },
+          "name": "gauss--core--dev--af"
+        }
+      }
+    },
+    "description": "This role must remain active and some permissions must be kept.",
+    "etag": "\"ab3d16b3d3ac7c21\"",
+    "lastRefreshTime": "2025-06-15T07:00:00Z",
+    "name": "projects/85988732320/locations/global/recommenders/google.iam.policy.ChangeRiskRecommender/recommendations/b2afd0e9-b30a-47d0-904a-3f44c933fddd",
+    "primaryImpact": {
+      "category": "RELIABILITY"
+    },
+    "priority": "P4",
+    "recommenderSubtype": "REVIEW_RISK",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//cloudresourcemanager.googleapis.com/projects/85988732320"
+    ]
+  },
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/global/insightTypes/google.iam.policy.ChangeRiskInsight/insights/34a7ec52-e43f-434d-b5e3-35f39af14175"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "custom",
+              "path": "/iamPolicy/bindings/*/members/*",
+              "pathFilters": {
+                "/iamPolicy/bindings/*/members/*": "sergo.chitava@makingscience.com",
+                "/iamPolicy/bindings/*/role": "roles/owner"
+              },
+              "resource": "//cloudresourcemanager.googleapis.com/projects/85988732320",
+              "resourceType": "cloudresourcemanager.googleapis.com/Project",
+              "value": "https://cloud.google.com/recommender/docs/change-risk-recommendations"
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "asset": {
+          "assetType": "cloudresourcemanager.googleapis.com/Project",
+          "iamPolicy": {
+            "bindings": [
+              {
+                "members": [
+                  "sergo.chitava@makingscience.com"
+                ],
+                "role": "roles/owner"
+              }
+            ]
+          },
+          "name": "gauss--core--dev--af"
+        }
+      }
+    },
+    "description": "This role must remain active and some permissions must be kept.",
+    "etag": "\"86f7db8c3aa07cac\"",
+    "lastRefreshTime": "2025-06-15T07:00:00Z",
+    "name": "projects/85988732320/locations/global/recommenders/google.iam.policy.ChangeRiskRecommender/recommendations/b562b625-7425-467d-a211-3d26204bf9ea",
+    "primaryImpact": {
+      "category": "RELIABILITY"
+    },
+    "priority": "P4",
+    "recommenderSubtype": "REVIEW_RISK",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//cloudresourcemanager.googleapis.com/projects/85988732320"
+    ]
+  },
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/global/insightTypes/google.iam.policy.ChangeRiskInsight/insights/05779540-1601-41d5-a1e8-2c5ae35d1bf3"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "custom",
+              "path": "/iamPolicy/bindings/*/members/*",
+              "pathFilters": {
+                "/iamPolicy/bindings/*/members/*": "gauss.dev.viewer@group.makingscience.com",
+                "/iamPolicy/bindings/*/role": "roles/viewer"
+              },
+              "resource": "//cloudresourcemanager.googleapis.com/projects/85988732320",
+              "resourceType": "cloudresourcemanager.googleapis.com/Project",
+              "value": "https://cloud.google.com/recommender/docs/change-risk-recommendations"
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "asset": {
+          "assetType": "cloudresourcemanager.googleapis.com/Project",
+          "iamPolicy": {
+            "bindings": [
+              {
+                "members": [
+                  "gauss.dev.viewer@group.makingscience.com"
+                ],
+                "role": "roles/viewer"
+              }
+            ]
+          },
+          "name": "gauss--core--dev--af"
+        }
+      }
+    },
+    "description": "This role must remain active and some permissions must be kept.",
+    "etag": "\"0d303474c74496b8\"",
+    "lastRefreshTime": "2025-06-15T07:00:00Z",
+    "name": "projects/85988732320/locations/global/recommenders/google.iam.policy.ChangeRiskRecommender/recommendations/ca224e1c-5082-408f-ad5a-6557809b58ae",
+    "primaryImpact": {
+      "category": "RELIABILITY"
+    },
+    "priority": "P4",
+    "recommenderSubtype": "REVIEW_RISK",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//cloudresourcemanager.googleapis.com/projects/85988732320"
+    ]
+  },
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/global/insightTypes/google.iam.policy.ChangeRiskInsight/insights/70ede6c7-39c9-4e4d-a4d1-af609682cc65"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "custom",
+              "path": "/iamPolicy/bindings/*/members/*",
+              "pathFilters": {
+                "/iamPolicy/bindings/*/members/*": "trustgen.dev.viewer@group.makingscience.com",
+                "/iamPolicy/bindings/*/role": "roles/viewer"
+              },
+              "resource": "//cloudresourcemanager.googleapis.com/projects/85988732320",
+              "resourceType": "cloudresourcemanager.googleapis.com/Project",
+              "value": "https://cloud.google.com/recommender/docs/change-risk-recommendations"
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "asset": {
+          "assetType": "cloudresourcemanager.googleapis.com/Project",
+          "iamPolicy": {
+            "bindings": [
+              {
+                "members": [
+                  "trustgen.dev.viewer@group.makingscience.com"
+                ],
+                "role": "roles/viewer"
+              }
+            ]
+          },
+          "name": "gauss--core--dev--af"
+        }
+      }
+    },
+    "description": "This role must remain active and some permissions must be kept.",
+    "etag": "\"3d6bac40cee390ea\"",
+    "lastRefreshTime": "2025-06-15T07:00:00Z",
+    "name": "projects/85988732320/locations/global/recommenders/google.iam.policy.ChangeRiskRecommender/recommendations/d1cac13b-3307-484b-83c8-765fe01a3ce2",
+    "primaryImpact": {
+      "category": "RELIABILITY"
+    },
+    "priority": "P4",
+    "recommenderSubtype": "REVIEW_RISK",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//cloudresourcemanager.googleapis.com/projects/85988732320"
+    ]
+  },
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/global/insightTypes/google.iam.policy.ChangeRiskInsight/insights/bcc29c69-05ce-46cf-b6ac-1efb438310bc"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "custom",
+              "path": "/iamPolicy/bindings/*/members/*",
+              "pathFilters": {
+                "/iamPolicy/bindings/*/members/*": "davit.mikava@makingscience.com",
+                "/iamPolicy/bindings/*/role": "roles/owner"
+              },
+              "resource": "//cloudresourcemanager.googleapis.com/projects/85988732320",
+              "resourceType": "cloudresourcemanager.googleapis.com/Project",
+              "value": "https://cloud.google.com/recommender/docs/change-risk-recommendations"
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "asset": {
+          "assetType": "cloudresourcemanager.googleapis.com/Project",
+          "iamPolicy": {
+            "bindings": [
+              {
+                "members": [
+                  "davit.mikava@makingscience.com"
+                ],
+                "role": "roles/owner"
+              }
+            ]
+          },
+          "name": "gauss--core--dev--af"
+        }
+      }
+    },
+    "description": "This role must remain active and some permissions must be kept.",
+    "etag": "\"00ed1a26c3a0360a\"",
+    "lastRefreshTime": "2025-06-15T07:00:00Z",
+    "name": "projects/85988732320/locations/global/recommenders/google.iam.policy.ChangeRiskRecommender/recommendations/d789cbd0-3683-4503-96eb-df24e862bcfb",
+    "primaryImpact": {
+      "category": "RELIABILITY"
+    },
+    "priority": "P4",
+    "recommenderSubtype": "REVIEW_RISK",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//cloudresourcemanager.googleapis.com/projects/85988732320"
+    ]
+  },
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/global/insightTypes/google.iam.policy.ChangeRiskInsight/insights/d0d0de36-2755-44cd-aa39-9e06d123fd8b"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "custom",
+              "path": "/iamPolicy/bindings/*/members/*",
+              "pathFilters": {
+                "/iamPolicy/bindings/*/members/*": "aleksandre.gelashvili@makingscience.com",
+                "/iamPolicy/bindings/*/role": "roles/datastore.owner"
+              },
+              "resource": "//cloudresourcemanager.googleapis.com/projects/85988732320",
+              "resourceType": "cloudresourcemanager.googleapis.com/Project",
+              "value": "https://cloud.google.com/recommender/docs/change-risk-recommendations"
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "asset": {
+          "assetType": "cloudresourcemanager.googleapis.com/Project",
+          "iamPolicy": {
+            "bindings": [
+              {
+                "members": [
+                  "aleksandre.gelashvili@makingscience.com"
+                ],
+                "role": "roles/datastore.owner"
+              }
+            ]
+          },
+          "name": "gauss--core--dev--af"
+        }
+      }
+    },
+    "description": "This role must remain active and some permissions must be kept.",
+    "etag": "\"eda155cb9ae43c71\"",
+    "lastRefreshTime": "2025-06-15T07:00:00Z",
+    "name": "projects/85988732320/locations/global/recommenders/google.iam.policy.ChangeRiskRecommender/recommendations/db11995e-50b8-4b73-9f5b-8705477a9e08",
+    "primaryImpact": {
+      "category": "RELIABILITY"
+    },
+    "priority": "P4",
+    "recommenderSubtype": "REVIEW_RISK",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//cloudresourcemanager.googleapis.com/projects/85988732320"
+    ]
+  },
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/global/insightTypes/google.iam.policy.ChangeRiskInsight/insights/11749ece-33fd-44b2-9721-a8e456fd3de9"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "custom",
+              "path": "/iamPolicy/bindings/*/members/*",
+              "pathFilters": {
+                "/iamPolicy/bindings/*/members/*": "nerea.kalandadze@makingscience.com",
+                "/iamPolicy/bindings/*/role": "roles/owner"
+              },
+              "resource": "//cloudresourcemanager.googleapis.com/projects/85988732320",
+              "resourceType": "cloudresourcemanager.googleapis.com/Project",
+              "value": "https://cloud.google.com/recommender/docs/change-risk-recommendations"
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "asset": {
+          "assetType": "cloudresourcemanager.googleapis.com/Project",
+          "iamPolicy": {
+            "bindings": [
+              {
+                "members": [
+                  "nerea.kalandadze@makingscience.com"
+                ],
+                "role": "roles/owner"
+              }
+            ]
+          },
+          "name": "gauss--core--dev--af"
+        }
+      }
+    },
+    "description": "This role must remain active and some permissions must be kept.",
+    "etag": "\"652dfd0ee802a9f2\"",
+    "lastRefreshTime": "2025-06-15T07:00:00Z",
+    "name": "projects/85988732320/locations/global/recommenders/google.iam.policy.ChangeRiskRecommender/recommendations/e080c726-5bd4-419e-b665-f6eb82154468",
+    "primaryImpact": {
+      "category": "RELIABILITY"
+    },
+    "priority": "P4",
+    "recommenderSubtype": "REVIEW_RISK",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//cloudresourcemanager.googleapis.com/projects/85988732320"
+    ]
+  },
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/global/insightTypes/google.iam.policy.ChangeRiskInsight/insights/4cce0c04-b6a5-47f7-9f20-2ac6e75bef1d"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "custom",
+              "path": "/iamPolicy/bindings/*/members/*",
+              "pathFilters": {
+                "/iamPolicy/bindings/*/members/*": "zaal.dzindzibadze@makingscience.com",
+                "/iamPolicy/bindings/*/role": "roles/owner"
+              },
+              "resource": "//cloudresourcemanager.googleapis.com/projects/85988732320",
+              "resourceType": "cloudresourcemanager.googleapis.com/Project",
+              "value": "https://cloud.google.com/recommender/docs/change-risk-recommendations"
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "asset": {
+          "assetType": "cloudresourcemanager.googleapis.com/Project",
+          "iamPolicy": {
+            "bindings": [
+              {
+                "members": [
+                  "zaal.dzindzibadze@makingscience.com"
+                ],
+                "role": "roles/owner"
+              }
+            ]
+          },
+          "name": "gauss--core--dev--af"
+        }
+      }
+    },
+    "description": "This role must remain active and some permissions must be kept.",
+    "etag": "\"627a3ddc071eac2a\"",
+    "lastRefreshTime": "2025-06-15T07:00:00Z",
+    "name": "projects/85988732320/locations/global/recommenders/google.iam.policy.ChangeRiskRecommender/recommendations/e1115a09-29fd-4d07-b591-3fb6c6ffd43f",
+    "primaryImpact": {
+      "category": "RELIABILITY"
+    },
+    "priority": "P4",
+    "recommenderSubtype": "REVIEW_RISK",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//cloudresourcemanager.googleapis.com/projects/85988732320"
+    ]
+  },
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/global/insightTypes/google.iam.policy.ChangeRiskInsight/insights/4125a3fc-f90c-45ed-ba78-a7f744dc45e6"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "custom",
+              "path": "/iamPolicy/bindings/*/members/*",
+              "pathFilters": {
+                "/iamPolicy/bindings/*/members/*": "sergo.chitava@makingscience.com",
+                "/iamPolicy/bindings/*/role": "roles/storage.admin"
+              },
+              "resource": "//cloudresourcemanager.googleapis.com/projects/85988732320",
+              "resourceType": "cloudresourcemanager.googleapis.com/Project",
+              "value": "https://cloud.google.com/recommender/docs/change-risk-recommendations"
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "asset": {
+          "assetType": "cloudresourcemanager.googleapis.com/Project",
+          "iamPolicy": {
+            "bindings": [
+              {
+                "members": [
+                  "sergo.chitava@makingscience.com"
+                ],
+                "role": "roles/storage.admin"
+              }
+            ]
+          },
+          "name": "gauss--core--dev--af"
+        }
+      }
+    },
+    "description": "This role must remain active and some permissions must be kept.",
+    "etag": "\"ceaeda5b1e241483\"",
+    "lastRefreshTime": "2025-06-15T07:00:00Z",
+    "name": "projects/85988732320/locations/global/recommenders/google.iam.policy.ChangeRiskRecommender/recommendations/e657ee62-69b8-4938-aae2-a118252df241",
+    "primaryImpact": {
+      "category": "RELIABILITY"
+    },
+    "priority": "P4",
+    "recommenderSubtype": "REVIEW_RISK",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//cloudresourcemanager.googleapis.com/projects/85988732320"
+    ]
+  },
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/global/insightTypes/google.iam.policy.ChangeRiskInsight/insights/8c5163bb-a53e-4ece-af48-57f22074541c"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "custom",
+              "path": "/iamPolicy/bindings/*/members/*",
+              "pathFilters": {
+                "/iamPolicy/bindings/*/members/*": "service-85988732320@gcf-admin-robot.iam.gserviceaccount.com",
+                "/iamPolicy/bindings/*/role": "roles/cloudfunctions.serviceAgent"
+              },
+              "resource": "//cloudresourcemanager.googleapis.com/projects/85988732320",
+              "resourceType": "cloudresourcemanager.googleapis.com/Project",
+              "value": "https://cloud.google.com/recommender/docs/change-risk-recommendations"
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "asset": {
+          "assetType": "cloudresourcemanager.googleapis.com/Project",
+          "iamPolicy": {
+            "bindings": [
+              {
+                "members": [
+                  "service-85988732320@gcf-admin-robot.iam.gserviceaccount.com"
+                ],
+                "role": "roles/cloudfunctions.serviceAgent"
+              }
+            ]
+          },
+          "name": "gauss--core--dev--af"
+        }
+      }
+    },
+    "description": "This role must remain active and some permissions must be kept.",
+    "etag": "\"e5498d10fd8ed376\"",
+    "lastRefreshTime": "2025-06-15T07:00:00Z",
+    "name": "projects/85988732320/locations/global/recommenders/google.iam.policy.ChangeRiskRecommender/recommendations/e9ff47a4-097a-46b6-8d47-289d7aaf479a",
+    "primaryImpact": {
+      "category": "RELIABILITY"
+    },
+    "priority": "P4",
+    "recommenderSubtype": "REVIEW_RISK",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//cloudresourcemanager.googleapis.com/projects/85988732320"
+    ]
+  },
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/global/insightTypes/google.iam.policy.ChangeRiskInsight/insights/ecc0930c-6eb9-48ea-be70-643606e1e171"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "custom",
+              "path": "/iamPolicy/bindings/*/members/*",
+              "pathFilters": {
+                "/iamPolicy/bindings/*/members/*": "luka.vardanidze@makingscience.com",
+                "/iamPolicy/bindings/*/role": "roles/run.sourceDeveloper"
+              },
+              "resource": "//cloudresourcemanager.googleapis.com/projects/85988732320",
+              "resourceType": "cloudresourcemanager.googleapis.com/Project",
+              "value": "https://cloud.google.com/recommender/docs/change-risk-recommendations"
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "asset": {
+          "assetType": "cloudresourcemanager.googleapis.com/Project",
+          "iamPolicy": {
+            "bindings": [
+              {
+                "members": [
+                  "luka.vardanidze@makingscience.com"
+                ],
+                "role": "roles/run.sourceDeveloper"
+              }
+            ]
+          },
+          "name": "gauss--core--dev--af"
+        }
+      }
+    },
+    "description": "This role must remain active and some permissions must be kept.",
+    "etag": "\"df488a29849fe560\"",
+    "lastRefreshTime": "2025-06-15T07:00:00Z",
+    "name": "projects/85988732320/locations/global/recommenders/google.iam.policy.ChangeRiskRecommender/recommendations/f12d9660-d966-4067-876f-e67bb31358ee",
+    "primaryImpact": {
+      "category": "RELIABILITY"
+    },
+    "priority": "P4",
+    "recommenderSubtype": "REVIEW_RISK",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//cloudresourcemanager.googleapis.com/projects/85988732320"
+    ]
+  }
+]

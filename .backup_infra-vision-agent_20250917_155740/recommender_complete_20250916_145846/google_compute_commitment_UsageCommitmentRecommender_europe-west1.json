@@ -1,0 +1,500 @@
+[
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/europe-west1/insightTypes/google.compute.commitment.UtilizationInsight/insights/a5de1cf2-e879-4366-90fd-e38c37d9109a"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "test",
+              "path": "/commitments/-/cumulativeCommitment/vCpu",
+              "resource": "//compute.googleapis.com/projects/85988732320/regions/europe-west1",
+              "resourceType": "compute.googleapis.com/Region",
+              "value": 0
+            },
+            {
+              "action": "add",
+              "path": "/",
+              "resource": "//compute.googleapis.com/projects/85988732320/regions/europe-west1/commitments",
+              "resourceType": "compute.googleapis.com/Commitment",
+              "value": {
+                "cudBucketName": "E2Core",
+                "description": "Commitment purchase based on CUD recommendation cud-recommendation-523732370",
+                "name": "cud-recommendation-523732370",
+                "plan": "THIRTY_SIX_MONTH",
+                "resources": [
+                  {
+                    "amount": 1,
+                    "type": "VCPU"
+                  }
+                ],
+                "type": "GENERAL_PURPOSE_E2"
+              }
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "@type": "type.googleapis.com/cloud.recommendations.recommenders.cudrecommender.v1.CudOverview",
+        "algorithm": "BREAK_EVEN_POINT",
+        "breakEvenPoint": 0.460368358,
+        "commitmentCoverageConfiguration": 1,
+        "plan": "THIRTY_SIX_MONTH",
+        "recommendedTargetCommitment": {
+          "lowBits": "1",
+          "scale": 0
+        },
+        "recommendedTargetCommitmentValue": "1",
+        "type": "VCPU"
+      }
+    },
+    "description": "Purchase a 3 year new resource-based CUD for General-purpose E2 Cores",
+    "etag": "\"1c090c2c3cc01059\"",
+    "lastRefreshTime": "2025-09-14T07:00:00Z",
+    "name": "projects/85988732320/locations/europe-west1/recommenders/google.compute.commitment.UsageCommitmentRecommender/recommendations/06b400aa-f20c-492d-9c88-9f857d78722a",
+    "primaryImpact": {
+      "category": "COST",
+      "costProjection": {
+        "cost": {
+          "currencyCode": "USD",
+          "nanos": -935923789,
+          "units": "-9"
+        },
+        "costInLocalCurrency": {
+          "currencyCode": "EUR",
+          "nanos": -564766305,
+          "units": "-8"
+        },
+        "duration": "2592000s"
+      }
+    },
+    "priority": "P4",
+    "recommenderSubtype": "PROJECT_SCOPED_COMMITMENTS",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//compute.googleapis.com/projects/85988732320/regions/europe-west1"
+    ],
+    "xorGroupId": "eee16eec5e7cb10d"
+  },
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/europe-west1/insightTypes/google.compute.commitment.UtilizationInsight/insights/62ffea5b-c24c-4073-b604-831c73c87397"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "test",
+              "path": "/commitments/-/cumulativeCommitment/memory",
+              "resource": "//compute.googleapis.com/projects/85988732320/regions/europe-west1",
+              "resourceType": "compute.googleapis.com/Region",
+              "value": 0
+            },
+            {
+              "action": "add",
+              "path": "/",
+              "resource": "//compute.googleapis.com/projects/85988732320/regions/europe-west1/commitments",
+              "resourceType": "compute.googleapis.com/Commitment",
+              "value": {
+                "cudBucketName": "E2RAM",
+                "description": "Commitment purchase based on CUD recommendation cud-recommendation-920111551",
+                "name": "cud-recommendation-920111551",
+                "plan": "THIRTY_SIX_MONTH",
+                "resources": [
+                  {
+                    "amount": 5120,
+                    "type": "MEMORY"
+                  }
+                ],
+                "type": "GENERAL_PURPOSE_E2"
+              }
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "@type": "type.googleapis.com/cloud.recommendations.recommenders.cudrecommender.v1.CudOverview",
+        "algorithm": "BREAK_EVEN_POINT",
+        "breakEvenPoint": 0.460367752,
+        "commitmentCoverageConfiguration": 1,
+        "plan": "THIRTY_SIX_MONTH",
+        "recommendedTargetCommitment": {
+          "lowBits": "536870912",
+          "scale": 1
+        },
+        "recommendedTargetCommitmentValue": "5120",
+        "type": "MEMORY"
+      }
+    },
+    "description": "Purchase a 3 year new resource-based CUD for General-purpose E2 Memory",
+    "etag": "\"421ec8344f30a5b0\"",
+    "lastRefreshTime": "2025-09-14T07:00:00Z",
+    "name": "projects/85988732320/locations/europe-west1/recommenders/google.compute.commitment.UsageCommitmentRecommender/recommendations/0d1f1a4f-9984-4d63-ae9e-2d0dfc3c21a7",
+    "primaryImpact": {
+      "category": "COST",
+      "costProjection": {
+        "cost": {
+          "currencyCode": "USD",
+          "nanos": -686013600,
+          "units": "-6"
+        },
+        "costInLocalCurrency": {
+          "currencyCode": "EUR",
+          "nanos": -763343723,
+          "units": "-5"
+        },
+        "duration": "2592000s"
+      }
+    },
+    "priority": "P4",
+    "recommenderSubtype": "PROJECT_SCOPED_COMMITMENTS",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//compute.googleapis.com/projects/85988732320/regions/europe-west1"
+    ],
+    "xorGroupId": "801df184c0fbcbc3"
+  },
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/europe-west1/insightTypes/google.compute.commitment.UtilizationInsight/insights/a5de1cf2-e879-4366-90fd-e38c37d9109a"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "test",
+              "path": "/commitments/-/cumulativeCommitment/vCpu",
+              "resource": "//compute.googleapis.com/projects/85988732320/regions/europe-west1",
+              "resourceType": "compute.googleapis.com/Region",
+              "value": 0
+            },
+            {
+              "action": "add",
+              "path": "/",
+              "resource": "//compute.googleapis.com/projects/85988732320/regions/europe-west1/commitments",
+              "resourceType": "compute.googleapis.com/Commitment",
+              "value": {
+                "cudBucketName": "E2Core",
+                "description": "Commitment purchase based on CUD recommendation cud-recommendation-250016862",
+                "name": "cud-recommendation-250016862",
+                "plan": "TWELVE_MONTH",
+                "resources": [
+                  {
+                    "amount": 1,
+                    "type": "VCPU"
+                  }
+                ],
+                "type": "GENERAL_PURPOSE_E2"
+              }
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "@type": "type.googleapis.com/cloud.recommendations.recommenders.cudrecommender.v1.CudOverview",
+        "algorithm": "BREAK_EVEN_POINT",
+        "breakEvenPoint": 0.644515702,
+        "commitmentCoverageConfiguration": 1,
+        "plan": "TWELVE_MONTH",
+        "recommendedTargetCommitment": {
+          "lowBits": "1",
+          "scale": 0
+        },
+        "recommendedTargetCommitmentValue": "1",
+        "type": "VCPU"
+      }
+    },
+    "description": "Purchase a 1 year new resource-based CUD for General-purpose E2 Cores",
+    "etag": "\"99b2fe729df97e95\"",
+    "lastRefreshTime": "2025-09-14T07:00:00Z",
+    "name": "projects/85988732320/locations/europe-west1/recommenders/google.compute.commitment.UsageCommitmentRecommender/recommendations/6ad2efd3-dd3b-444d-95ed-b9e50f851669",
+    "primaryImpact": {
+      "category": "COST",
+      "costProjection": {
+        "cost": {
+          "currencyCode": "USD",
+          "nanos": -826382749,
+          "units": "-6"
+        },
+        "costInLocalCurrency": {
+          "currencyCode": "EUR",
+          "nanos": -884341929,
+          "units": "-5"
+        },
+        "duration": "2592000s"
+      }
+    },
+    "priority": "P4",
+    "recommenderSubtype": "PROJECT_SCOPED_COMMITMENTS",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//compute.googleapis.com/projects/85988732320/regions/europe-west1"
+    ],
+    "xorGroupId": "eee16eec5e7cb10d"
+  },
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/europe-west1/insightTypes/google.compute.commitment.UtilizationInsight/insights/62ffea5b-c24c-4073-b604-831c73c87397"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "test",
+              "path": "/commitments/-/cumulativeCommitment/memory",
+              "resource": "//compute.googleapis.com/projects/85988732320/regions/europe-west1",
+              "resourceType": "compute.googleapis.com/Region",
+              "value": 0
+            },
+            {
+              "action": "add",
+              "path": "/",
+              "resource": "//compute.googleapis.com/projects/85988732320/regions/europe-west1/commitments",
+              "resourceType": "compute.googleapis.com/Commitment",
+              "value": {
+                "cudBucketName": "E2RAM",
+                "description": "Commitment purchase based on CUD recommendation cud-recommendation-1114723469",
+                "name": "cud-recommendation-1114723469",
+                "plan": "TWELVE_MONTH",
+                "resources": [
+                  {
+                    "amount": 5120,
+                    "type": "MEMORY"
+                  }
+                ],
+                "type": "GENERAL_PURPOSE_E2"
+              }
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "@type": "type.googleapis.com/cloud.recommendations.recommenders.cudrecommender.v1.CudOverview",
+        "algorithm": "BREAK_EVEN_POINT",
+        "breakEvenPoint": 0.644515126,
+        "commitmentCoverageConfiguration": 1,
+        "plan": "TWELVE_MONTH",
+        "recommendedTargetCommitment": {
+          "lowBits": "536870912",
+          "scale": 1
+        },
+        "recommendedTargetCommitmentValue": "5120",
+        "type": "MEMORY"
+      }
+    },
+    "description": "Purchase a 1 year new resource-based CUD for General-purpose E2 Memory",
+    "etag": "\"3ae1c7af61bda6cc\"",
+    "lastRefreshTime": "2025-09-14T07:00:00Z",
+    "name": "projects/85988732320/locations/europe-west1/recommenders/google.compute.commitment.UsageCommitmentRecommender/recommendations/92982d67-945e-4491-9313-340686d99b44",
+    "primaryImpact": {
+      "category": "COST",
+      "costProjection": {
+        "cost": {
+          "currencyCode": "USD",
+          "nanos": -601988000,
+          "units": "-4"
+        },
+        "costInLocalCurrency": {
+          "currencyCode": "EUR",
+          "nanos": -966913655,
+          "units": "-3"
+        },
+        "duration": "2592000s"
+      }
+    },
+    "priority": "P4",
+    "recommenderSubtype": "PROJECT_SCOPED_COMMITMENTS",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//compute.googleapis.com/projects/85988732320/regions/europe-west1"
+    ],
+    "xorGroupId": "801df184c0fbcbc3"
+  },
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/europe-west1/insightTypes/google.compute.commitment.UtilizationInsight/insights/62ffea5b-c24c-4073-b604-831c73c87397"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "test",
+              "path": "/commitments/-/cumulativeCommitment/memory",
+              "resource": "//compute.googleapis.com/projects/85988732320/regions/europe-west1",
+              "resourceType": "compute.googleapis.com/Region",
+              "value": 0
+            },
+            {
+              "action": "add",
+              "path": "/",
+              "resource": "//compute.googleapis.com/projects/85988732320/regions/europe-west1/commitments",
+              "resourceType": "compute.googleapis.com/Commitment",
+              "value": {
+                "cudBucketName": "E2RAM",
+                "description": "Commitment purchase based on CUD recommendation cud-recommendation-1483084069",
+                "name": "cud-recommendation-1483084069",
+                "plan": "THIRTY_SIX_MONTH",
+                "resources": [
+                  {
+                    "amount": 5120,
+                    "type": "MEMORY"
+                  }
+                ],
+                "type": "GENERAL_PURPOSE_E2"
+              }
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "@type": "type.googleapis.com/cloud.recommendations.recommenders.cudrecommender.v1.CudOverview",
+        "algorithm": "LOW_WATERMARK",
+        "breakEvenPoint": 0.999,
+        "commitmentCoverageConfiguration": 1,
+        "plan": "THIRTY_SIX_MONTH",
+        "recommendedTargetCommitment": {
+          "lowBits": "536870912",
+          "scale": 1
+        },
+        "recommendedTargetCommitmentValue": "5120",
+        "type": "MEMORY"
+      }
+    },
+    "description": "Purchase a 3 year new resource-based CUD for General-purpose E2 Memory",
+    "etag": "\"1311fa7d995719e3\"",
+    "lastRefreshTime": "2025-09-14T07:00:00Z",
+    "name": "projects/85988732320/locations/europe-west1/recommenders/google.compute.commitment.UsageCommitmentRecommender/recommendations/976daaee-786c-4210-95c2-a34e04efc855",
+    "primaryImpact": {
+      "category": "COST",
+      "costProjection": {
+        "cost": {
+          "currencyCode": "USD",
+          "nanos": -686013600,
+          "units": "-6"
+        },
+        "costInLocalCurrency": {
+          "currencyCode": "EUR",
+          "nanos": -763343723,
+          "units": "-5"
+        },
+        "duration": "2592000s"
+      }
+    },
+    "priority": "P4",
+    "recommenderSubtype": "PROJECT_SCOPED_COMMITMENTS",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//compute.googleapis.com/projects/85988732320/regions/europe-west1"
+    ],
+    "xorGroupId": "801df184c0fbcbc3"
+  },
+  {
+    "associatedInsights": [
+      {
+        "insight": "projects/85988732320/locations/europe-west1/insightTypes/google.compute.commitment.UtilizationInsight/insights/62ffea5b-c24c-4073-b604-831c73c87397"
+      }
+    ],
+    "content": {
+      "operationGroups": [
+        {
+          "operations": [
+            {
+              "action": "test",
+              "path": "/commitments/-/cumulativeCommitment/memory",
+              "resource": "//compute.googleapis.com/projects/85988732320/regions/europe-west1",
+              "resourceType": "compute.googleapis.com/Region",
+              "value": 0
+            },
+            {
+              "action": "add",
+              "path": "/",
+              "resource": "//compute.googleapis.com/projects/85988732320/regions/europe-west1/commitments",
+              "resourceType": "compute.googleapis.com/Commitment",
+              "value": {
+                "cudBucketName": "E2RAM",
+                "description": "Commitment purchase based on CUD recommendation cud-recommendation-1632785423",
+                "name": "cud-recommendation-1632785423",
+                "plan": "TWELVE_MONTH",
+                "resources": [
+                  {
+                    "amount": 5120,
+                    "type": "MEMORY"
+                  }
+                ],
+                "type": "GENERAL_PURPOSE_E2"
+              }
+            }
+          ]
+        }
+      ],
+      "overview": {
+        "@type": "type.googleapis.com/cloud.recommendations.recommenders.cudrecommender.v1.CudOverview",
+        "algorithm": "LOW_WATERMARK",
+        "breakEvenPoint": 0.999,
+        "commitmentCoverageConfiguration": 1,
+        "plan": "TWELVE_MONTH",
+        "recommendedTargetCommitment": {
+          "lowBits": "536870912",
+          "scale": 1
+        },
+        "recommendedTargetCommitmentValue": "5120",
+        "type": "MEMORY"
+      }
+    },
+    "description": "Purchase a 1 year new resource-based CUD for General-purpose E2 Memory",
+    "etag": "\"2303f6ad58c0981c\"",
+    "lastRefreshTime": "2025-09-14T07:00:00Z",
+    "name": "projects/85988732320/locations/europe-west1/recommenders/google.compute.commitment.UsageCommitmentRecommender/recommendations/de80d88e-5648-46bf-96fc-1c60e6655763",
+    "primaryImpact": {
+      "category": "COST",
+      "costProjection": {
+        "cost": {
+          "currencyCode": "USD",
+          "nanos": -601988000,
+          "units": "-4"
+        },
+        "costInLocalCurrency": {
+          "currencyCode": "EUR",
+          "nanos": -966913655,
+          "units": "-3"
+        },
+        "duration": "2592000s"
+      }
+    },
+    "priority": "P4",
+    "recommenderSubtype": "PROJECT_SCOPED_COMMITMENTS",
+    "stateInfo": {
+      "state": "ACTIVE"
+    },
+    "targetResources": [
+      "//compute.googleapis.com/projects/85988732320/regions/europe-west1"
+    ],
+    "xorGroupId": "801df184c0fbcbc3"
+  }
+]

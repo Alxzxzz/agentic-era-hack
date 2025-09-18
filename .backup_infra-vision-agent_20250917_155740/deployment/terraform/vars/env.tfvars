@@ -1,0 +1,11 @@
+staging_project_id = "qwiklabs-gcp-02-73852aeb6acb"
+prod_project_id = "qwiklabs-gcp-02-73852aeb6acb"
+cicd_runner_project_id = "qwiklabs-gcp-02-73852aeb6acb"
+region = "us-central1"
+repository_name = "agentic-era-hack"
+repository_owner = "Alxzxzz"
+host_connection_name = "git-agentic-era-hack"
+create_cb_connection = true
+create_repository = false
+github_app_installation_id = "86373855"
+github_pat_secret_id = "git-agentic-era-hack-github-oauthtoken-8c11ee"
