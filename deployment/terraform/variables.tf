@@ -12,121 +12,117 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-variable "project_name" {
-  type        = string
-  description = "Project name used as a base for resource naming"
-  default     = "infra-vision-agent"
-}
-
 variable "prod_project_id" {
   type        = string
-  description = "**Production** Google Cloud Project ID for resource deployment."
+  description = "The GCP project ID for the production environment."
 }
 
 variable "staging_project_id" {
   type        = string
-  description = "**Staging** Google Cloud Project ID for resource deployment."
+  description = "The GCP project ID for the staging environment."
 }
 
 variable "cicd_runner_project_id" {
   type        = string
-  description = "Google Cloud Project ID where CI/CD pipelines will execute."
+  description = "The GCP project ID where CI/CD resources like Cloud Build triggers will be created."
+}
+
+variable "dev_project_id" {
+  type        = string
+  description = "The GCP project ID for the development environment."
+  default     = null
 }
 
 variable "region" {
   type        = string
-  description = "Google Cloud region for resource deployment."
-  default     = "us-central1"
+  description = "The primary GCP region for deploying resources."
 }
 
-variable "host_connection_name" {
-  description = "Name of the host connection to create in Cloud Build"
+variable "repository_owner" {
   type        = string
-  default     = "infra-vision-agent-github-connection"
+  description = "The owner of the GitHub repository (user or organization)."
 }
 
 variable "repository_name" {
-  description = "Name of the repository you'd like to connect to Cloud Build"
   type        = string
+  description = "The name of the GitHub repository."
+}
+
+variable "project_name" {
+  type        = string
+  description = "The base name for the agent project, used for naming resources."
+  default     = "infra-vision-agent"
+}
+
+variable "iap" {
+  type        = bool
+  description = "Flag to enable Identity-Aware Proxy for the UI."
+  default     = false
+}
+
+variable "data_ingestion" {
+  type        = bool
+  description = "Flag to include data ingestion pipelines."
+  default     = false
+}
+
+# Variables added to fix errors
+variable "create_repository" {
+  type        = bool
+  description = "Whether to create the GitHub repository."
+  default     = true
+}
+
+variable "github_pat_secret_id" {
+  type        = string
+  description = "The Secret Manager secret ID for the GitHub PAT."
+  default     = ""
+}
+
+variable "cicd_roles" {
+  type        = list(string)
+  description = "A list of IAM roles for the CI/CD service account on the CI/CD project."
+  default     = []
+}
+
+variable "cicd_sa_deployment_required_roles" {
+  type        = list(string)
+  description = "A list of IAM roles required by the CI/CD service account on the deployment projects."
+  default     = []
+}
+
+variable "app_sa_roles" {
+  type        = list(string)
+  description = "A list of IAM roles for the application's service account."
+  default     = []
 }
 
 variable "telemetry_logs_filter" {
   type        = string
-  description = "Log Sink filter for capturing telemetry data. Captures logs with the `traceloop.association.properties.log_type` attribute set to `tracing`."
-  default     = "labels.service_name=\"infra-vision-agent\" labels.type=\"agent_telemetry\""
+  description = "The filter for telemetry logs."
+  default     = ""
 }
 
 variable "feedback_logs_filter" {
   type        = string
-  description = "Log Sink filter for capturing feedback data. Captures logs where the `log_type` field is `feedback`."
-  default     = "jsonPayload.log_type=\"feedback\""
-}
-
-variable "app_sa_roles" {
-  description = "List of roles to assign to the application service account"
-  type        = list(string)
-  default = [
-    "roles/aiplatform.user",
-    "roles/discoveryengine.editor",
-    "roles/logging.logWriter",
-    "roles/cloudtrace.agent",
-    "roles/storage.admin",
-    "roles/serviceusage.serviceUsageConsumer",
-  ]
-}
-
-variable "cicd_roles" {
-  description = "List of roles to assign to the CICD runner service account in the CICD project"
-  type        = list(string)
-  default = [
-    "roles/storage.admin",
-    "roles/aiplatform.user",
-    "roles/discoveryengine.editor",
-    "roles/logging.logWriter",
-    "roles/cloudtrace.agent",
-    "roles/artifactregistry.writer",
-    "roles/cloudbuild.builds.builder"
-  ]
-}
-
-variable "cicd_sa_deployment_required_roles" {
-  description = "List of roles to assign to the CICD runner service account for the Staging and Prod projects."
-  type        = list(string)
-  default = [    
-    "roles/iam.serviceAccountUser",
-    "roles/aiplatform.user",
-    "roles/storage.admin"
-  ]
-}
-
-
-variable "repository_owner" {
-  description = "Owner of the Git repository - username or organization"
-  type        = string
+  description = "The filter for feedback logs."
+  default     = ""
 }
 
 variable "github_app_installation_id" {
-  description = "GitHub App Installation ID for Cloud Build"
   type        = string
-  default     = null
-}
-
-
-variable "github_pat_secret_id" {
-  description = "GitHub PAT Secret ID created by gcloud CLI"
-  type        = string
+  description = "The installation ID for the GitHub App."
   default     = null
 }
 
 variable "create_cb_connection" {
-  description = "Flag indicating if a Cloud Build connection already exists"
   type        = bool
-  default     = false
+  description = "Whether to create the Cloud Build connection to GitHub."
+  default     = true
 }
 
-variable "create_repository" {
-  description = "Flag indicating whether to create a new Git repository"
-  type        = bool
-  default     = false
+variable "host_connection_name" {
+  type        = string
+  description = "The name for the Cloud Build host connection."
+  default     = "github-connection"
 }
-

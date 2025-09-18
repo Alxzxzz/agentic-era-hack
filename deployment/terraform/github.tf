@@ -27,7 +27,7 @@ resource "github_repository" "repo" {
   count       = var.create_repository ? 1 : 0
   name        = var.repository_name
   description = "Repository created with goo.gle/agent-starter-pack"
-  visibility  = "private"
+  visibility  = "public"
 
   has_issues      = true
   has_wiki        = false

@@ -3,6 +3,8 @@ import datetime
 import os
 from zoneinfo import ZoneInfo
 import json
+import base64
+import google.generativeai as genai
 
 import google.auth
 from google.adk.agents import Agent
@@ -46,6 +48,10 @@ def analyze_infrastructure(query: str) -> str:
         response += f"- Memorystore for Redis: {len(resources['redis_instances'])} instances\n"
     if resources.get('spanner_instances'):
         response += f"- Spanner: {len(resources['spanner_instances'])} instances\n"
+    if resources.get('schedulers'):
+        response += f"- Cloud Schedulers: {len(resources['schedulers'])} jobs\n"
+    if resources.get('run_services'):
+        response += f"- Cloud Run Services: {len(resources['run_services'])} services\n"
 
     response += "\n💰 **Cost Breakdown:**\n"
     if resources.get('vms'):
@@ -60,37 +66,51 @@ def analyze_infrastructure(query: str) -> str:
         response += "Memorystore for Redis:\n" + "\n".join([f"  • {r['name']}: ${r['monthly_cost']}/month" for r in resources['redis_instances']]) + "\n"
     if resources.get('spanner_instances'):
         response += "Spanner:\n" + "\n".join([f"  • {s['name']}: ${s['monthly_cost']}/month" for s in resources['spanner_instances']]) + "\n"
+    if resources.get('schedulers'):
+        response += "Cloud Schedulers:\n" + "\n".join([f"  • {s['name']}: ${s['monthly_cost']}/month" for s in resources['schedulers']]) + "\n"
+    if resources.get('run_services'):
+        response += "Cloud Run Services:\n" + "\n".join([f"  • {s['name']}: ${s['monthly_cost']}/month" for s in resources['run_services']]) + "\n"
+
+    response += "\n🔗 **Interconnectivity:**\n"
+    all_resources = (resources.get('vms', []) + resources.get('databases', []) + 
+                     resources.get('storage', []) + resources.get('clusters', []) + 
+                     resources.get('redis_instances', []) + resources.get('spanner_instances', []) + 
+                     resources.get('schedulers', []) + resources.get('run_services', []))
+    for resource in all_resources:
+        if resource.get('relationships'):
+            response += f"  • {resource['name']} relationships:\n"
+            for rel in resource['relationships']:
+                response += f"    - {rel['type']} -> {rel['target']}\n"
 
     return response
 
-def generate_cost_visualization(query: str) -> str:
-    """Generates a prompt for creating infrastructure cost visualization.
-    
-    Args:
-        query: Request for visualization
-    
-    Returns:
-        Detailed prompt for image generation
-    """
-    project_id = get_project_id() or default_project_id
-    analyzer = InfrastructureAnalyzer(project_id=project_id)
-    resources = analyzer.get_infrastructure_summary()
-    prompt = analyzer.generate_cost_prompt(resources)
-    
-    return f"""🎨 **Visualization Prompt Generated for project {project_id}!**
+def generate_infrastructure_image(query: str) -> str:
+    """Generates an image of the infrastructure based on the analysis and saves it to a file."""
+    try:
+        # 1. Get infrastructure data and generate the detailed prompt
+        project_id = get_project_id() or default_project_id
+        analyzer = InfrastructureAnalyzer(project_id=project_id)
+        resources = analyzer.get_infrastructure_summary()
+        prompt = analyzer.generate_cost_prompt(resources)
 
-I've created a detailed prompt for generating your infrastructure diagram:
+        # 2. Configure the Gemini image generation model
+        genai.configure(api_key=os.getenv('GEMINI_API_KEY'))
+        model = genai.GenerativeModel('gemini-2.5-flash-image-preview')
 
-{prompt}
+        # 3. Generate the image content
+        print("Generating infrastructure image with Gemini...")
+        response = model.generate_content([prompt])
+        
+        # 4. Decode the base64 image data and save it to a file
+        image_data = base64.b64decode(response.parts[0].inline_data.data)
+        file_path = 'infrastructure_diagram.png'
+        with open(file_path, 'wb') as out:
+            out.write(image_data)
+        
+        return f"🖼️ ¡Éxito! He generado el diagrama de la infraestructura y lo he guardado en el fichero '{file_path}'."
 
-📊 This visualization will show:
-- All your GCP resources with cost indicators
-- Red highlights for expensive items (>${100}/month)
-- Green indicators for optimization opportunities
-- Professional cloud architecture diagram style
-
-To generate the actual image, this prompt can be used with Vertex AI's Imagen model.
-"""
+    except Exception as e:
+        return f"Error al generar la imagen: {e}"
 
 def get_google_cloud_recommendations(query: str) -> str:
     """Gets official Google Cloud optimization recommendations."""
@@ -116,53 +136,22 @@ def format_recommendations(recs: list) -> str:
     """Formats a list of recommendations into a string."""
     formatted_string = ""
     for rec in recs:
-        savings = f" (Est. Savings: ${rec['monthly_savings']}/month)" if rec['monthly_savings'] > 0 else ""
+        savings = f" (Est. Savings: ${rec['monthly_cost']}/month)" if rec['monthly_cost'] > 0 else ""
         formatted_string += f"- **{rec['type']}** on `{rec['resource']}`: {rec['description']}{savings}\n"
     return formatted_string + "\n"
-
-def get_weather(query: str) -> str:
-    """Simulates a web search. Use it get information on weather.
-
-    Args:
-        query: A string containing the location to get weather information for.
-
-    Returns:
-        A string with the simulated weather information for the queried location.
-    """
-    if "sf" in query.lower() or "san francisco" in query.lower():
-        return "It's 60 degrees and foggy."
-    return "It's 90 degrees and sunny."
-
-def get_current_time(query: str) -> str:
-    """Simulates getting the current time for a city.
-
-    Args:
-        city: The name of the city to get the current time for.
-
-    Returns:
-        A string with the current time information.
-    """
-    if "sf" in query.lower() or "san francisco" in query.lower():
-        tz_identifier = "America/Los_Angeles"
-    else:
-        return f"Sorry, I don't have timezone information for query: {query}."
-
-    tz = ZoneInfo(tz_identifier)
-    now = datetime.datetime.now(tz)
-    return f"The current time for query {query} is {now.strftime('%Y-%m-%d %H:%M:%S %Z%z')}"
-
 
 root_agent = Agent(
     name="infrastructure_vision_agent",
     model="gemini-2.5-flash",
     instruction="""You are an Infrastructure Cost Optimization Agent specializing in Google Cloud Platform. 
     Your primary functions are:
-    1. Analyze GCP infrastructure and identify cost optimization opportunities
-    2. Generate visualization prompts for infrastructure diagrams
-    3. Provide actionable recommendations to reduce cloud costs
-    4. Set the project to analyze using the set_project_id tool.
+    1. Analyze GCP infrastructure and identify cost optimization opportunities.
+    2. Generate a visual diagram of the infrastructure using the `generate_infrastructure_image` tool.
+    3. Provide actionable recommendations to reduce cloud costs.
+    4. Set the project to analyze using the `set_project_id` tool.
     
-    When users ask about infrastructure, costs, or optimization, use the analyze_infrastructure 
-    and get_google_cloud_recommendations tools. Be helpful and proactive in suggesting cost savings.""",
-    tools=[set_project_id, analyze_infrastructure, get_google_cloud_recommendations, generate_cost_visualization, get_weather, get_current_time],
+    When a user asks for an image, diagram, or visualization, you must use the `generate_infrastructure_image` tool.
+    For general analysis, use `analyze_infrastructure`.
+    For recommendations, use `get_google_cloud_recommendations`. """,
+    tools=[set_project_id, analyze_infrastructure, get_google_cloud_recommendations, generate_infrastructure_image],
 )

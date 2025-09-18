@@ -1,19 +1,11 @@
-# Project name used for resource naming
-project_name = "infra-vision-agent"
-
-# Your Production Google Cloud project id
-prod_project_id = "your-production-project-id"
-
-# Your Staging / Test Google Cloud project id
-staging_project_id = "your-staging-project-id"
-
-# Your Google Cloud project ID that will be used to host the Cloud Build pipelines.
-cicd_runner_project_id = "your-cicd-project-id"
-# Name of the host connection you created in Cloud Build
-host_connection_name = "git-infra-vision-agent"
-
-# Name of the repository you added to Cloud Build
-repository_name = "infra-vision-agent"
-
-# The Google Cloud region you will use to deploy the infrastructure
+staging_project_id = "qwiklabs-gcp-02-a24b0a7cf082"
+prod_project_id = "qwiklabs-gcp-02-73852aeb6acb"
+cicd_runner_project_id = "qwiklabs-gcp-02-73852aeb6acb"
 region = "us-central1"
+repository_name = "agentic-era-hack"
+repository_owner = "Alxzxzz"
+host_connection_name = "git-infra-vision-agent"
+create_cb_connection = true
+create_repository = true
+github_app_installation_id = "86373855"
+github_pat_secret_id = "git-infra-vision-agent-github-oauthtoken-c251a4"
